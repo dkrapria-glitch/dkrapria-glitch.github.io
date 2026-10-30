@@ -37,6 +37,22 @@ section{padding:100px 0}.section-head{display:flex;justify-content:space-between
 footer{border-top:1px solid #ffffff18;padding:28px 0;color:#9c8993;font-size:11px;letter-spacing:1px}.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 @media(max-width:720px){header{padding:18px 0}nav{gap:13px;font-size:11px}.brand{font-size:17px}.hero{min-height:690px}.hero:before{width:330px;height:330px;right:-25%;top:23%}.hero:after{right:-10%;top:30%;font-size:260px}.hero-content{padding-top:80px}h1{letter-spacing:-3px}.lead{font-size:15px}section{padding:72px 0}.section-head{display:block}.section-desc{margin-top:18px}.cards{grid-template-columns:1fr 1fr}.about-grid{grid-template-columns:1fr;gap:35px}.about-visual{min-height:300px}.contact{display:block}.contact .btn{margin-top:15px}}
 @media(max-width:430px){nav a:nth-child(2){display:none}.cards{grid-template-columns:1fr}.hero{min-height:650px}}
+
+.song-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.song-card{background:#1b1018;border:1px solid #ffffff18;overflow:hidden}
+.song-cover{aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;text-align:center;padding:22px;position:relative;isolation:isolate;background:radial-gradient(circle at 70% 25%,#b76b48,#45172f 48%,#10090d 82%)}
+.song-cover:before{content:"";position:absolute;inset:12px;border:1px solid #e6bd7580;z-index:-1}
+.song-cover:after{content:"DKRAPRIA";position:absolute;bottom:24px;color:#e6bd75;font-size:10px;letter-spacing:4px}
+.song-cover strong{font-size:clamp(25px,3vw,39px);line-height:1.05;letter-spacing:-1px;text-shadow:0 4px 20px #000}
+.song-card:nth-child(2) .song-cover{background:radial-gradient(circle at 60% 35%,#b58b37,#563018 48%,#10090d 85%)}
+.song-card:nth-child(3) .song-cover{background:radial-gradient(circle at 50% 35%,#e16c35,#61212a 50%,#10090d 85%)}
+.song-card:nth-child(4) .song-cover{background:radial-gradient(circle at 60% 30%,#b77c65,#482036 50%,#10090d 85%)}
+.song-card:nth-child(5) .song-cover{background:radial-gradient(circle at 60% 25%,#3674a0,#32204c 55%,#10090d 85%)}
+.song-card:nth-child(6) .song-cover{background:radial-gradient(circle at 60% 30%,#a64b44,#302044 55%,#10090d 85%)}
+.song-meta{padding:18px}.song-meta h3{font-size:18px;margin:0 0 8px}.song-meta p{font-size:12px;color:#b9aab1;margin:0 0 16px}
+.play-link{display:inline-flex;background:#e6bd75;color:#211018;padding:11px 16px;font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase}
+@media(max-width:720px){.song-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:430px){.song-grid{grid-template-columns:1fr 1fr}.song-meta{padding:13px}.song-meta h3{font-size:15px}}
 </style>
 </head>
 <body>
@@ -49,12 +65,16 @@ footer{border-top:1px solid #ffffff18;padding:28px 0;color:#9c8993;font-size:11p
 <div class="actions"><a class="btn primary" href="#music">Explore Music</a><a class="btn" href="#about">Discover the Artist</a></div>
 <div class="hero-note">Original music · Devotional · Hindi · Haryanvi</div>
 </div></div></section>
+
 <section class="releases" id="music"><div class="wrap">
-<div class="section-head"><div><div class="kicker">The sound of DkRapria</div><h2>Featured Music</h2></div><p class="section-desc">A home for every mood — from emotional originals to devotional compositions. Add your latest release links below.</p></div>
-<div class="cards">
-<article class="card"><div class="art"><div><strong>ORIGINAL<br>SONGS</strong><small>DKRAPRIA</small></div></div><div class="card-info"><h3>Hindi Originals</h3><p>Emotional · Romantic · Sad</p></div></article>
-<article class="card"><div class="art"><div><strong>DIVINE<br>VIBES</strong><small>DKRAPRIA</small></div></div><div class="card-info"><h3>Devotional Music</h3><p>Bhajans · Mantras · Meditation</p></div></article>
-<article class="card"><div class="art"><div><strong>DESI<br>ROOTS</strong><small>DKRAPRIA</small></div></div><div class="card-info"><h3>Haryanvi Sound</h3><p>Folk · Urban · Regional</p></div></article>
+<div class="section-head"><div><div class="kicker">Most played & latest releases</div><h2>Top 6 Songs</h2></div><p class="section-desc">Listen to DkRapria’s featured songs. Tap Play to open the track search on YouTube Music.</p></div>
+<div class="song-grid">
+<article class="song-card"><div class="song-cover"><strong>AURAT<br>HONE KA<br>DARD</strong></div><div class="song-meta"><h3>Aurat hone ka dard</h3><p>44K plays · Dk Rapria</p><a class="play-link" href="https://music.youtube.com/search?q=Aurat%20hone%20ka%20dard%20Dk%20Rapria" target="_blank" rel="noopener">▶ Play</a></div></article>
+<article class="song-card"><div class="song-cover"><strong>MHARA<br>HARYANA<br>KIT KHU GYA</strong></div><div class="song-meta"><h3>Mhara Haryana Kit Khu Gya</h3><p>9.2K plays · Dk Rapria</p><a class="play-link" href="https://music.youtube.com/search?q=Mhara%20Haryana%20Kit%20Khu%20Gya%20Dk%20Rapria" target="_blank" rel="noopener">▶ Play</a></div></article>
+<article class="song-card"><div class="song-cover"><strong>BADMASH<br>DADI</strong></div><div class="song-meta"><h3>Badmash Dadi</h3><p>490 plays · Dk Rapria</p><a class="play-link" href="https://music.youtube.com/search?q=Badmash%20Dadi%20Dk%20Rapria" target="_blank" rel="noopener">▶ Play</a></div></article>
+<article class="song-card"><div class="song-cover"><strong>WO<br>AURAT<br>HAI</strong></div><div class="song-meta"><h3>Wo Aurat Hai</h3><p>7.5K plays · Dk Rapria</p><a class="play-link" href="https://music.youtube.com/search?q=Wo%20Aurat%20Hai%20Dk%20Rapria" target="_blank" rel="noopener">▶ Play</a></div></article>
+<article class="song-card"><div class="song-cover"><strong>OYE TERI<br>YAAD AATI<br>HAI</strong></div><div class="song-meta"><h3>Oye teri yaad aati hai</h3><p>Single · 2026</p><a class="play-link" href="https://music.amazon.it/tracks/B0HL4N51C7" target="_blank" rel="noopener">▶ Play</a></div></article>
+<article class="song-card"><div class="song-cover"><strong>BEWAFA<br>KYUN KEHTE<br>HO</strong></div><div class="song-meta"><h3>Bewafa Kyun Kehte Ho</h3><p>Single · 2026</p><a class="play-link" href="https://music.youtube.com/search?q=Bewafa%20Kyun%20Kehte%20Ho%20Dk%20Rapria" target="_blank" rel="noopener">▶ Play</a></div></article>
 </div></div></section>
 <section id="about"><div class="wrap about-grid"><div class="about-visual"><div class="monogram">DK</div></div><div class="about-copy"><div class="kicker">Behind the music</div><h2>Meet DkRapria</h2><p>DkRapria is an independent music artist creating original Hindi music, devotional songs and regional sounds. Every release begins with an emotion, a story or a feeling worth sharing.</p><p>Explore the music, follow new releases and stay connected with the official artist channels.</p><div class="pillars"><span class="pill">Original Music</span><span class="pill">Devotional</span><span class="pill">Haryanvi</span><span class="pill">Independent Artist</span></div></div></div></section>
 <section class="listen" id="listen"><div class="wrap"><div class="kicker">Stream · Watch · Follow</div><h2>Your next favourite song is one click away.</h2><p>Find DkRapria on your favourite music and video platforms.</p><div class="platforms">
