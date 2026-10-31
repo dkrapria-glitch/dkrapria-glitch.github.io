@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dkrapria-glitch.github.io/sitemap.xml
