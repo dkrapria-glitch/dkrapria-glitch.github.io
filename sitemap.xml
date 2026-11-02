@@ -48,4 +48,8 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url><loc>https://dkrapria-glitch.github.io/about.html</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://dkrapria-glitch.github.io/contact.html</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://dkrapria-glitch.github.io/privacy-policy.html</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://dkrapria-glitch.github.io/terms.html</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
 </urlset>
