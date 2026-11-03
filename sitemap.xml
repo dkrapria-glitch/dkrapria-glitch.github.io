@@ -2,54 +2,54 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://dkrapria-glitch.github.io/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://dkrapria-glitch.github.io/songs.html</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://dkrapria-glitch.github.io/songs/aurat-hone-ka-dard/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://dkrapria-glitch.github.io/songs/mhara-haryana-kit-khu-gya/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://dkrapria-glitch.github.io/songs/badmash-dadi/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://dkrapria-glitch.github.io/songs/wo-aurat-hai/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://dkrapria-glitch.github.io/songs/oye-teri-yaad-aati-hai/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://dkrapria-glitch.github.io/songs/bewafa-kyun-kehte-ho/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-  <url><loc>https://dkrapria-glitch.github.io/about.html</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://dkrapria-glitch.github.io/contact.html</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://dkrapria-glitch.github.io/privacy-policy.html</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://dkrapria-glitch.github.io/terms.html</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://dkrapria-glitch.github.io/about.html</loc><lastmod>2026-11-03</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://dkrapria-glitch.github.io/contact.html</loc><lastmod>2026-11-03</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://dkrapria-glitch.github.io/privacy-policy.html</loc><lastmod>2026-11-03</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://dkrapria-glitch.github.io/terms.html</loc><lastmod>2026-11-03</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
 </urlset>
