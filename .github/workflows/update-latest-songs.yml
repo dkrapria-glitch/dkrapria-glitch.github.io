@@ -2,7 +2,7 @@ name: Update latest songs from YouTube Music
 
 on:
   schedule:
-    - cron: "17 */6 * * *"
+    - cron: "0 21 * * *"
   workflow_dispatch:
 
 permissions:
