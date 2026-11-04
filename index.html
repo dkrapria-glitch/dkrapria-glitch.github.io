@@ -177,4 +177,30 @@ footer{border-top:1px solid #ffffff18;padding:28px 0;color:#9c8993;font-size:11p
 <section id="contact"><div class="wrap"><div class="contact"><div><div class="kicker">Contact · Collaborate · Connect</div><h2>Let’s make some noise.</h2><p>For music collaborations, performance and booking enquiries, or official artist updates, reach DkRapria through the official channels below.</p></div></div><div class="contact-options"><article class="contact-option"><h3>Music Collaboration</h3><p>Have a song, production or creative project in mind? Connect with DkRapria on Instagram.</p><a href="https://www.instagram.com/dkrapria?igsh=aWNlZDE2OWo2dGp0" target="_blank" rel="noopener">Send an Instagram DM ↗</a></article><article class="contact-option"><h3>Booking & Enquiries</h3><p>For performance, event and professional enquiries, email the official artist contact.</p><a href="mailto:Dkrapria@gmail.com">Dkrapria@gmail.com ↗</a></article><article class="contact-option"><h3>Listen & Follow</h3><p>Explore official releases and follow DkRapria on YouTube Music.</p><a href="https://music.youtube.com/channel/UCbdxiWPCAgIkncfXCj6u1qQ" target="_blank" rel="noopener">Visit YouTube Music ↗</a></article></div></div></section>
 </main>
 <footer><div class="wrap foot"><span>© <span id="year">2026</span> DKRAPRIA. ALL RIGHTS RESERVED.</span><span>INDEPENDENT MUSIC · DKRAPRIAMUSIC</span><nav aria-label="Legal and information links"><a href="/about.html">About</a><a href="/contact.html">Contact</a><a href="/privacy-policy.html">Privacy Policy</a><a href="/terms.html">Terms</a><a href="/songs.html">All Songs</a></nav></div></footer>
+
+<script>
+(async function loadLatestSongs() {
+  const grid = document.querySelector("#latest .latest-grid");
+  if (!grid) return;
+  try {
+    const response = await fetch("/latest-songs.json?updated=" + Date.now(), {cache: "no-store"});
+    if (!response.ok) return;
+    const data = await response.json();
+    if (!Array.isArray(data.songs) || data.songs.length === 0) return;
+    grid.innerHTML = data.songs.map(song => {
+      const title = String(song.title || "New DkRapria release");
+      const url = String(song.url || "#");
+      const thumb = String(song.thumbnail || "");
+      const date = song.published ? new Date(song.published).getFullYear() : "";
+      const safe = value => value.replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
+      return '<a class="latest-card" href="' + safe(url) + '" target="_blank" rel="noopener noreferrer"><div class="latest-art latest-image"><img src="' + safe(thumb) + '" alt="' + safe(title) + ' cover thumbnail" loading="lazy"></div><div class="latest-info"><span class="latest-tag">NEW RELEASE' + (date ? ' · ' + date : '') + '</span><h3>' + safe(title) + '</h3><p>DkRapria · YouTube Music</p><span class="latest-listen">LISTEN ON YOUTUBE MUSIC ↗</span></div></a>';
+    }).join("");
+    const description = document.querySelector("#latest .section-desc");
+    if (description) description.textContent = "Automatically refreshed from the DkRapria YouTube Music Topic channel. Bhajans and devotional tracks are kept in the separate Bhakti Songs section.";
+  } catch (error) {
+    console.warn("Latest songs feed could not be loaded; showing featured releases.", error);
+  }
+})();
+</script>
+
 </body></html>
