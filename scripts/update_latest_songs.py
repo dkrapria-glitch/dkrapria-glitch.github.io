@@ -11,10 +11,14 @@ MAX_SONGS = 8
 
 # Keep devotional releases in the separate Bhakti Songs section.
 DEVOTIONAL_TERMS = (
-    "bhajan", "bhakti", "mantra", "chalisa", "aarti", "arti", "vrat",
-    "katha", "shiv", "shiva", "mahakal", "krishna", "radha", "hanuman",
-    "mata", "devi", "durga", "ram ji", "sita", "geeta", "meditation",
-    "relax music", "sukh dhund", "marzi rab", "rab ki", "sab dekh raha"
+    "bhajan", "bhakti", "devotional", "mantra", "jaap", "jap", "chalisa",
+    "aarti", "arti", "stotra", "kavach", "kirtan", "vrat", "katha",
+    "shiv", "shiva", "mahakal", "mahadev", "bhole", "krishna", "radha",
+    "hanuman", "bajrang", "mata", "devi", "durga", "santoshi", "ganesh",
+    "ganesha", "shani", "surya", "vishnu", "laxmi", "lakshmi",
+    "brihaspati", "ram ji", "ram naam", "sita", "geeta", "gita",
+    "meditation", "relax music", "sukh dhund", "marzi rab", "rab ki",
+    "sab dekh raha", "pooja", "puja", "jagran"
 )
 KNOWN_DEVOTIONAL_IDS = {"IBhqbDGe8a8", "pKo-YZtCPqo", "XtZwYw7i_4k"}
 
@@ -47,12 +51,16 @@ def main():
 
     entries = channel.get("entries") or []
     songs = []
+    seen_video_ids = set()
     for entry in entries:
         if not entry:
             continue
         title = (entry.get("title") or "").strip()
         video_id = (entry.get("id") or "").strip()
-        if not title or not video_id or is_devotional(title, video_id):
+        if not title or not video_id or video_id in seen_video_ids:
+            continue
+        seen_video_ids.add(video_id)
+        if is_devotional(title, video_id):
             continue
 
         upload_date = entry.get("upload_date")
