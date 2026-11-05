@@ -2,8 +2,8 @@ name: Update latest songs from DkRapria YouTube channel
 
 on:
   schedule:
-    # 8:00 AM India Standard Time (02:30 UTC), every day.
-    - cron: "30 2 * * *"
+    # 2:00 AM India Standard Time (20:30 UTC on the previous day), every day.
+    - cron: "30 20 * * *"
   workflow_dispatch:
 
 permissions:
