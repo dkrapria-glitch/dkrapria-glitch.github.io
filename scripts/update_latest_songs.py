@@ -18,7 +18,7 @@ DEVOTIONAL_TERMS = (
     "ganesha", "shani", "surya", "vishnu", "laxmi", "lakshmi",
     "brihaspati", "ram ji", "ram naam", "sita", "geeta", "gita",
     "meditation", "relax music", "sukh dhund", "marzi rab", "rab ki",
-    "sab dekh raha", "pooja", "puja", "jagran"
+    "sab dekh raha", "sukh ko dhoondhan", "sukh dhoondhan", "balak bana de", "ri maa", "pooja", "puja", "jagran"
 )
 KNOWN_DEVOTIONAL_IDS = {"IBhqbDGe8a8", "pKo-YZtCPqo", "XtZwYw7i_4k"}
 
