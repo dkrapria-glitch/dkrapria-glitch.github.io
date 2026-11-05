@@ -1,19 +1,19 @@
 {
   "source": "Apple Music artist catalogue supplied by DkRapria; YouTube Music search links where a direct video URL was not verified",
   "channelUrl": "https://www.youtube.com/@dkrapria",
-  "updatedAt": "2026-11-05T02:52:00Z",
+  "updatedAt": "2026-11-05T21:40:00Z",
   "songs": [
     {
       "title": "Chand Se Pehle Tu",
       "url": "https://music.youtube.com/search?q=Chand%20Se%20Pehle%20Tu%20DkRapria",
-      "thumbnail": "",
+      "thumbnail": "/covers/chand-se-pehle-tu.webp",
       "published": "",
       "category": "Song"
     },
     {
       "title": "ARTHI KI BAARAT",
       "url": "https://music.youtube.com/search?q=ARTHI%20KI%20BAARAT%20DkRapria",
-      "thumbnail": "",
+      "thumbnail": "/covers/arthi-ki-baarat.webp",
       "published": "",
       "category": "Song"
     },
