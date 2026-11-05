@@ -191,9 +191,9 @@ footer{border-top:1px solid #ffffff18;padding:28px 0;color:#9c8993;font-size:11p
       const title = String(song.title || "New DkRapria release");
       const url = String(song.url || "#");
       const thumb = String(song.thumbnail || "");
-      const cover = thumb ? '' + cover + '' : '<div class="latest-art-fallback">' + safe(title) + '<small>DKRAPRIA · 2026</small></div>';
       const date = song.published ? new Date(song.published).getFullYear() : "";
       const safe = value => value.replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
+      const cover = thumb ? '<img src="' + safe(thumb) + '" alt="' + safe(title) + ' cover thumbnail" loading="lazy" decoding="async">' : '<div class="latest-art-fallback">' + safe(title) + '<small>DKRAPRIA · 2026</small></div>';
       const knownSpotify = {
         "UdojRe-aglY": "https://open.spotify.com/track/69xRDtKyO4TfsCDbvCSJ7o",
         "dkvkF5eUBxM": "https://open.spotify.com/track/0mnWNTSM40KuuMrN7Z0d55"
@@ -204,7 +204,7 @@ footer{border-top:1px solid #ffffff18;padding:28px 0;color:#9c8993;font-size:11p
       const amazonUrl = "https://music.amazon.in/search/" + searchTerm;
       const gaanaUrl = "https://gaana.com/search/" + searchTerm;
       const jiosaavnUrl = "https://www.jiosaavn.com/search/song/" + searchTerm;
-      return '<article class="latest-card"><a class="latest-art latest-image" href="' + safe(url) + '" target="_blank" rel="noopener noreferrer"><img src="' + safe(thumb) + '" alt="' + safe(title) + ' cover thumbnail" loading="lazy" decoding="async"></a><div class="latest-info"><span class="latest-tag">NEW RELEASE' + (date ? ' · ' + date : '') + '</span><h3>' + safe(title) + '</h3><p>DkRapria · YouTube Music</p><div class="song-actions"><a class="play-link" href="' + safe(url) + '" target="_blank" rel="noopener noreferrer">▶ YouTube Music</a><a class="play-link secondary" href="' + safe(spotifyUrl) + '" target="_blank" rel="noopener noreferrer">♫ Spotify</a><a class="play-link secondary" href="' + safe(appleUrl) + '" target="_blank" rel="noopener noreferrer">♫ Apple Music</a><a class="play-link secondary" href="' + safe(amazonUrl) + '" target="_blank" rel="noopener noreferrer">♫ Amazon Music</a><a class="play-link secondary" href="' + safe(gaanaUrl) + '" target="_blank" rel="noopener noreferrer">♫ Gaana</a><a class="play-link secondary" href="' + safe(jiosaavnUrl) + '" target="_blank" rel="noopener noreferrer">♫ JioSaavn</a></div></div></article>';
+      return '<article class="latest-card"><a class="latest-art latest-image" href="' + safe(url) + '" target="_blank" rel="noopener noreferrer">' + cover + '</a><div class="latest-info"><span class="latest-tag">NEW RELEASE' + (date ? ' · ' + date : '') + '</span><h3>' + safe(title) + '</h3><p>DkRapria · YouTube Music</p><div class="song-actions"><a class="play-link" href="' + safe(url) + '" target="_blank" rel="noopener noreferrer">▶ YouTube Music</a><a class="play-link secondary" href="' + safe(spotifyUrl) + '" target="_blank" rel="noopener noreferrer">♫ Spotify</a><a class="play-link secondary" href="' + safe(appleUrl) + '" target="_blank" rel="noopener noreferrer">♫ Apple Music</a><a class="play-link secondary" href="' + safe(amazonUrl) + '" target="_blank" rel="noopener noreferrer">♫ Amazon Music</a><a class="play-link secondary" href="' + safe(gaanaUrl) + '" target="_blank" rel="noopener noreferrer">♫ Gaana</a><a class="play-link secondary" href="' + safe(jiosaavnUrl) + '" target="_blank" rel="noopener noreferrer">♫ JioSaavn</a></div></div></article>';
     }).join("");
     const description = document.querySelector("#latest .section-desc");
     if (description) description.textContent = "Automatically refreshed from the DkRapria YouTube Music Topic channel. Bhajans and devotional tracks are kept in the separate Bhakti Songs section.";
