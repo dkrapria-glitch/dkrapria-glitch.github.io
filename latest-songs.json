@@ -1,14 +1,65 @@
 {
-  "source": "DkRapria official YouTube channel",
+  "source": "Apple Music artist catalogue supplied by DkRapria; YouTube Music search links where a direct video URL was not verified",
   "channelUrl": "https://www.youtube.com/@dkrapria",
-  "updatedAt": "2026-11-05T02:45:00Z",
+  "updatedAt": "2026-11-05T02:52:00Z",
   "songs": [
     {
-      "title": "इश्क़ से मीठा ज़हर | DkRapria | Heart Touching Sad Song 2026",
-      "videoId": "k1_90kQO6OE",
-      "url": "https://music.youtube.com/watch?v=k1_90kQO6OE",
-      "thumbnail": "https://i.ytimg.com/vi/k1_90kQO6OE/maxresdefault.jpg",
-      "published": ""
+      "title": "Chand Se Pehle Tu",
+      "url": "https://music.youtube.com/search?q=Chand%20Se%20Pehle%20Tu%20DkRapria",
+      "thumbnail": "",
+      "published": "",
+      "category": "Song"
+    },
+    {
+      "title": "ARTHI KI BAARAT",
+      "url": "https://music.youtube.com/search?q=ARTHI%20KI%20BAARAT%20DkRapria",
+      "thumbnail": "",
+      "published": "",
+      "category": "Song"
+    },
+    {
+      "title": "Badmash Dadi",
+      "url": "https://music.youtube.com/search?q=Badmash%20Dadi%20DkRapria",
+      "thumbnail": "",
+      "published": "",
+      "category": "Song"
+    },
+    {
+      "title": "Sasti Badmaashi",
+      "url": "https://music.youtube.com/search?q=Sasti%20Badmaashi%20DkRapria",
+      "thumbnail": "",
+      "published": "",
+      "category": "Song"
+    },
+    {
+      "title": "Aurat Hone Ka Dard",
+      "url": "https://music.youtube.com/search?q=Aurat%20Hone%20Ka%20Dard%20DkRapria",
+      "thumbnail": "",
+      "published": "",
+      "category": "Song"
+    },
+    {
+      "title": "Oye Teri Yaad Aati Hai",
+      "videoId": "UdojRe-aglY",
+      "url": "https://music.youtube.com/watch?v=UdojRe-aglY",
+      "thumbnail": "https://i.ytimg.com/vi/UdojRe-aglY/maxresdefault.jpg",
+      "published": "",
+      "category": "Song"
+    },
+    {
+      "title": "Bewafa Kyun Kehte Ho",
+      "videoId": "dkvkF5eUBxM",
+      "url": "https://music.youtube.com/watch?v=dkvkF5eUBxM",
+      "thumbnail": "https://i.ytimg.com/vi/dkvkF5eUBxM/maxresdefault.jpg",
+      "published": "",
+      "category": "Song"
+    },
+    {
+      "title": "Ye Man Tumko Bhatkayega",
+      "url": "https://music.youtube.com/search?q=Ye%20Man%20Tumko%20Bhatkayega%20DkRapria",
+      "thumbnail": "",
+      "published": "",
+      "category": "Song"
     }
   ]
 }
