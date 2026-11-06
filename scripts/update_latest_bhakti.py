@@ -1,0 +1,142 @@
+import html
+import json
+import re
+from datetime import datetime, timezone
+from pathlib import Path
+
+import yt_dlp
+
+CHANNEL_URL = "https://www.youtube.com/channel/UCokS_ORFCf6Ql_LBAFF1Ohg/videos"
+CHANNEL_NAME = "SunoDk"
+OUT = Path("latest-bhakti.json")
+MAX_RESULTS = 50
+MAX_VIDEOS = 12
+
+ENGLISH_DEVOTIONAL = re.compile(
+    r"\b(?:bhakti|bhajan|devotional|spiritual|nirgun|mantra|jaap|jap|"
+    r"chalisa|aarti|arti|stotra|kavach|kirtan|vrat|katha|shiv|shiva|"
+    r"mahakal|mahadev|bholenath|bhole|krishna|radha|hanuman|bajrang|"
+    r"mata|devi|durga|kali|santoshi|ganesh|ganesha|shani|surya|vishnu|"
+    r"laxmi|lakshmi|brihaspati|ram|sita|geeta|gita|gayatri|meditation|"
+    r"pooja|puja|jagran|satsang|hari|govind|gopal|shyam|radhe|om)\b",
+    re.IGNORECASE,
+)
+ROMAN_PHRASES = re.compile(
+    r"\b(?:sukh\s+ko\s+dhoondhan|sukh\s+dhoondhan|marzi\s+rab\s+ki|"
+    r"rab\s+ki|sab\s+dekh\s+raha|balak\s+bana\s+de|ram\s+naam)\b",
+    re.IGNORECASE,
+)
+HINDI_DEVOTIONAL_TERMS = (
+    "भजन", "भक्ति", "मंत्र", "आरती", "शिव", "महादेव", "भोले", "कृष्ण",
+    "राधा", "राम", "हनुमान", "माता", "देवी", "दुर्गा", "काली", "संतोषी",
+    "शनिदेव", "सूर्य", "जाप", "जप", "ध्यान", "प्रभु", "भगवान", "ईश्वर",
+    "हरि", "गोविंद", "गोपाल", "श्याम", "राधे", "विष्णु", "लक्ष्मी", "गायत्री",
+    "स्तोत्र", "कवच", "कीर्तन", "व्रत", "कथा", "पूजा", "जगराता", "निर्गुण",
+    "सत्संग", "मोको कहाँ ढूँढे", "सुख ढूंढन", "मर्जी रब की", "वो सब देख रहा",
+    "मनने फेर ते बालक बना",
+)
+KNOWN_DEVOTIONAL_IDS = {"PDaqBlUkPJo"}
+
+
+def is_devotional(title: str, video_id: str) -> bool:
+    if video_id in KNOWN_DEVOTIONAL_IDS:
+        return True
+    return bool(
+        ENGLISH_DEVOTIONAL.search(title)
+        or ROMAN_PHRASES.search(title)
+        or any(term in title for term in HINDI_DEVOTIONAL_TERMS)
+    )
+
+
+def get_published(entry: dict) -> str:
+    upload_date = entry.get("upload_date")
+    if upload_date and len(str(upload_date)) == 8:
+        date = str(upload_date)
+        return f"{date[:4]}-{date[4:6]}-{date[6:8]}T00:00:00Z"
+    timestamp = entry.get("timestamp")
+    if timestamp:
+        try:
+            return datetime.fromtimestamp(float(timestamp), timezone.utc).isoformat()
+        except (TypeError, ValueError, OverflowError):
+            pass
+    return ""
+
+
+def get_thumbnail(entry: dict, video_id: str) -> str:
+    thumbnail = entry.get("thumbnail")
+    if isinstance(thumbnail, list):
+        thumbnail = next(
+            (item.get("url") for item in reversed(thumbnail)
+             if isinstance(item, dict) and item.get("url")),
+            "",
+        )
+    return thumbnail or f"https://i.ytimg.com/vi/{video_id}/hqdefault.jpg"
+
+
+def main() -> None:
+    options = {
+        "extract_flat": "in_playlist",
+        "playlistend": MAX_RESULTS,
+        "skip_download": True,
+        "quiet": True,
+        "no_warnings": True,
+        "ignoreerrors": True,
+        "socket_timeout": 30,
+        "retries": 3,
+        "extractor_retries": 3,
+    }
+
+    with yt_dlp.YoutubeDL(options) as ydl:
+        channel = ydl.extract_info(CHANNEL_URL, download=False)
+
+    if not channel:
+        raise RuntimeError("Could not read the public SunoDk YouTube channel.")
+
+    entries = channel.get("entries") or []
+    if not entries:
+        raise RuntimeError("SunoDk channel returned no video entries; keeping the previous feed.")
+
+    videos = []
+    seen_ids = set()
+    for entry in entries:
+        if not entry:
+            continue
+        title = html.unescape((entry.get("title") or "").strip())
+        video_id = (entry.get("id") or "").strip()
+        if not title or not video_id or video_id in seen_ids:
+            continue
+        seen_ids.add(video_id)
+        if not is_devotional(title, video_id):
+            continue
+        videos.append({
+            "videoId": video_id,
+            "title": title,
+            "url": f"https://www.youtube.com/watch?v={video_id}",
+            "thumbnail": get_thumbnail(entry, video_id),
+            "published": get_published(entry),
+        })
+
+    videos.sort(key=lambda item: item["published"], reverse=True)
+    videos = videos[:MAX_VIDEOS]
+
+    if not videos and OUT.exists():
+        try:
+            previous = json.loads(OUT.read_text(encoding="utf-8"))
+            videos = previous.get("videos", []) if isinstance(previous, dict) else []
+        except (OSError, json.JSONDecodeError):
+            videos = []
+        print("No new matching devotional uploads; retaining the previous video cards.")
+
+    payload = {
+        "channel": CHANNEL_NAME,
+        "channelId": "UCokS_ORFCf6Ql_LBAFF1Ohg",
+        "channelUrl": "https://www.youtube.com/@sunodk",
+        "updated": datetime.now(timezone.utc).isoformat(),
+        "videos": videos,
+    }
+    OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(f"Saved {len(videos)} SunoDk devotional video cards.")
+
+
+if __name__ == "__main__":
+    main()
