@@ -23,7 +23,7 @@ jobs:
           data = urllib.request.urlopen(req, timeout=30).read()
           root = ET.fromstring(data)
           ns = {"atom":"http://www.w3.org/2005/Atom","yt":"http://www.youtube.com/xml/schemas/2015"}
-          terms = re.compile(r"bhakti|bhajan|mantra|aarti|arti|shiv|shankar|mahadev|bholenath|krishna|radha|ram|hanuman|mata|devi|durga|kali|santoshi|shani|surya|geeta|गीता|भजन|भक्ति|मंत्र|आरती|शिव|महादेव|भोले|कृष्ण|राधा|राम|हनुमान|माता|देवी|दुर्गा|काली|संतोषी|शनिदेव|सूर्य|जाप|जप|ध्यान", re.I)
+          terms = re.compile(r"bhakti|bhajan|mantra|aarti|arti|shiv|shankar|mahadev|bholenath|krishna|radha|\\bram\\b|hanuman|mata|devi|durga|kali|santoshi|shani|surya|geeta|गीता|भजन|भक्ति|मंत्र|आरती|शिव|महादेव|भोले|कृष्ण|राधा|राम|हनुमान|माता|देवी|दुर्गा|काली|संतोषी|शनिदेव|सूर्य|जाप|जप|ध्यान", re.I)
           videos=[]
           for e in root.findall("atom:entry", ns):
               title=e.findtext("atom:title", default="", namespaces=ns)
