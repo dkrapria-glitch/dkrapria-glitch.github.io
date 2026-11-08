@@ -1,7 +1,7 @@
 {
   "artist": "DkRapria",
   "source": "Apple Music artist catalogue screenshots supplied by the artist",
-  "updatedAt": "2026-11-05",
+  "updatedAt": "2026-11-09",
   "songs": [
     {
       "title": "Chand Se Pehle Tu",
@@ -34,6 +34,12 @@
     {
       "title": "Aurat Hone Ka Dard",
       "category": "Song"
+    },
+    {
+      "title": "Aurat Hone Ka Dard Part 2 Main Begunah Thi",
+      "category": "Song",
+      "releaseDate": "2026-11-06",
+      "duration": "5:19"
     },
     {
       "title": "Oye Teri Yaad Aati Hai",
