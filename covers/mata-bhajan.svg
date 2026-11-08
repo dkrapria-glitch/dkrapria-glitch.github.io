@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" role="img" aria-labelledby="t d">
+<title id="t">माता भजन — DkRapria Devotional</title><desc id="d">A devotional red and gold illustration of Maa Durga with halo, trident, lion and diyas.</desc>
+<defs>
+ <radialGradient id="bg"><stop stop-color="#7b1d20"/><stop offset=".58" stop-color="#3a101c"/><stop offset="1" stop-color="#160d18"/></radialGradient>
+ <radialGradient id="halo"><stop stop-color="#fff4b0"/><stop offset=".48" stop-color="#f4b83f"/><stop offset="1" stop-color="#9b3a16" stop-opacity="0"/></radialGradient>
+ <linearGradient id="gold" x2="0" y2="1"><stop stop-color="#fff2a5"/><stop offset=".5" stop-color="#e7a72e"/><stop offset="1" stop-color="#9e4c12"/></linearGradient>
+ <linearGradient id="sari" x2="1" y2="1"><stop stop-color="#ff5360"/><stop offset=".5" stop-color="#a80d28"/><stop offset="1" stop-color="#4d071c"/></linearGradient>
+ <filter id="glow"><feGaussianBlur stdDeviation="16"/></filter>
+</defs>
+<rect width="900" height="900" fill="url(#bg)"/>
+<circle cx="450" cy="330" r="285" fill="#ffc64d" opacity=".2" filter="url(#glow)"/>
+<circle cx="450" cy="330" r="238" fill="url(#halo)"/>
+<circle cx="450" cy="330" r="190" fill="none" stroke="#ffd978" stroke-width="7"/>
+<circle cx="450" cy="330" r="174" fill="none" stroke="#f8c65c" stroke-width="2" stroke-dasharray="5 13"/>
+<!-- trident -->
+<g fill="none" stroke="url(#gold)" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"><path d="M735 70v480M735 75c-70 55-78 130-10 170M735 75c70 55 78 130 10 170M735 260c-40-35-78-35-105 0M735 260c40-35 78-35 105 0"/></g>
+<!-- body and sari -->
+<path d="M270 770Q260 520 345 430Q450 365 555 430Q640 520 630 770Z" fill="url(#sari)" stroke="#f5c65d" stroke-width="10"/>
+<path d="M340 470Q450 590 560 470L640 770H260Z" fill="none" stroke="#f6c95d" stroke-width="9"/>
+<path d="M320 610Q450 700 580 610" fill="none" stroke="#f8d67a" stroke-width="7"/>
+<!-- face -->
+<ellipse cx="450" cy="300" rx="105" ry="135" fill="#f2b17f" stroke="#8c3d25" stroke-width="7"/>
+<path d="M345 260Q345 125 450 115Q555 125 555 260Q520 195 450 195Q380 195 345 260" fill="#201018" stroke="url(#gold)" stroke-width="12"/>
+<!-- crown -->
+<path d="M350 190L365 85L410 135L450 42L490 135L535 85L550 190Z" fill="url(#gold)" stroke="#fff0a0" stroke-width="8"/>
+<circle cx="450" cy="105" r="17" fill="#c51e38" stroke="#fff1a0" stroke-width="6"/>
+<!-- features -->
+<path d="M382 290q25-22 48 0M470 290q25-22 48 0" fill="none" stroke="#35121a" stroke-width="9" stroke-linecap="round"/>
+<ellipse cx="405" cy="310" rx="10" ry="14" fill="#241018"/><ellipse cx="495" cy="310" rx="10" ry="14" fill="#241018"/>
+<path d="M450 315l-10 40 20 0M420 380q30 25 60 0" fill="none" stroke="#8b2e2c" stroke-width="7" stroke-linecap="round"/>
+<path d="M450 235v24" stroke="#c51e38" stroke-width="12" stroke-linecap="round"/>
+<!-- ornaments -->
+<g fill="url(#gold)" stroke="#fff0a0" stroke-width="4"><circle cx="450" cy="425" r="19"/><circle cx="360" cy="335" r="12"/><circle cx="540" cy="335" r="12"/><path d="M350 420q-35 55 0 85q35-30 0-85M550 420q-35 55 0 85q35-30 0-85"/></g>
+<!-- lion -->
+<g transform="translate(620 490)"><ellipse cx="95" cy="120" rx="110" ry="100" fill="#c47a24" stroke="#f4ca66" stroke-width="9"/><circle cx="110" cy="110" r="68" fill="#e7ad55" stroke="#71351c" stroke-width="7"/><path d="M60 70l-25-55 55 20M155 70l35-55-60 20" fill="#e7ad55" stroke="#71351c" stroke-width="8"/><ellipse cx="85" cy="105" rx="9" ry="13" fill="#21121a"/><ellipse cx="135" cy="105" rx="9" ry="13" fill="#21121a"/><path d="M95 145q20 18 40 0" fill="none" stroke="#54251b" stroke-width="8"/><ellipse cx="115" cy="130" rx="17" ry="12" fill="#f4d19a"/></g>
+<!-- diyas -->
+<g transform="translate(110 720)"><path d="M0 45q70 75 140 0Z" fill="url(#gold)" stroke="#ffe69a" stroke-width="6"/><path d="M70 38Q30-30 70-70Q110-30 70 38" fill="#ffd54d" stroke="#fff2a3" stroke-width="5"/></g>
+<g transform="translate(650 720)"><path d="M0 45q70 75 140 0Z" fill="url(#gold)" stroke="#ffe69a" stroke-width="6"/><path d="M70 38Q30-30 70-70Q110-30 70 38" fill="#ffd54d" stroke="#fff2a3" stroke-width="5"/></g>
+<rect x="28" y="28" width="844" height="844" rx="20" fill="none" stroke="#d8a84e" stroke-width="5"/>
+<text x="450" y="825" text-anchor="middle" fill="#ffe49a" font-family="serif" font-size="58" font-weight="bold" letter-spacing="5">माता भजन</text>
+<text x="450" y="865" text-anchor="middle" fill="#d9b978" font-family="sans-serif" font-size="18" letter-spacing="7">DKRAPRIA DEVOTIONAL</text>
+</svg>
