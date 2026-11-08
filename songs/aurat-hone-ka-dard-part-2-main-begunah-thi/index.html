@@ -51,6 +51,9 @@ body{margin:0;background:radial-gradient(ellipse at 75% 15%,#641b3666,transparen
 main{width:min(900px,92%);margin:0 auto;padding:28px 0 60px}
 header{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 0 26px;border-bottom:1px solid #ffffff20}
 a{color:var(--gold);text-decoration:none}
+.skip-link{position:absolute;left:-9999px;top:12px;padding:12px 16px;background:var(--gold);color:#211018;font-weight:800;z-index:1000}
+.skip-link:focus{left:16px}
+a:focus-visible{outline:3px solid #fff;outline-offset:3px}
 .brand{font-weight:800;letter-spacing:2px;color:var(--cream)}
 .back{font-size:13px}
 article{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:36px;align-items:center;padding:55px 0}
@@ -72,7 +75,8 @@ footer{border-top:1px solid #ffffff20;padding-top:20px;color:var(--muted);font-s
 </style>
 </head>
 <body>
-<main>
+<a class="skip-link" href="#main-content">Skip to song details</a>
+<main id="main-content" tabindex="-1">
 <header><a class="brand" href="/">DKRAPRIA OFFICIAL</a><a class="back" href="/songs.html">← All songs</a></header>
 <article>
 <div class="art"><img src="/covers/aurat-hone-ka-dard-part-2.webp" alt="Aurat Hone Ka Dard Part 2 Main Begunah Thi cover artwork by DkRapria" width="900" height="900" fetchpriority="high"></div>

@@ -192,11 +192,12 @@ footer{border-top:1px solid #ffffff18;padding:28px 0;color:#9c8993;font-size:11p
     const data = await response.json();
     if (!Array.isArray(data.songs) || data.songs.length === 0) return;
     grid.innerHTML = data.songs.map(song => {
-      const title = String(song.title || "New DkRapria release");
+      const title = String(song.displayTitle || song.title || "New DkRapria release");
       const url = String(song.url || "#");
       const youtubeMusicUrl = String((song.platforms && song.platforms.youtubeMusic) || url);
+      const genre = [song.genre || song.language || "Hindi / Haryanvi Music", song.duration].filter(Boolean).join(" · ");
       const thumb = String(song.thumbnail || "");
-      const date = song.published ? new Date(song.published).getFullYear() : "";
+      const date = song.published ? new Date(song.published).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" }) : "";
       const safe = value => value.replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
       const cover = thumb ? '<img src="' + safe(thumb) + '" alt="' + safe(title) + ' cover thumbnail" loading="lazy" decoding="async">' : '<div class="latest-art-fallback">' + safe(title) + '<small>DKRAPRIA · 2026</small></div>';
       // Show only verified, song-specific platform URLs supplied in the feed.
@@ -220,7 +221,7 @@ footer{border-top:1px solid #ffffff18;padding:28px 0;color:#9c8993;font-size:11p
         .filter(([key, value]) => key !== "youtubeMusic" && platformLabels[key] && typeof value === "string" && /^https:\/\//i.test(value))
         .map(([key, value]) => '<a class="play-link secondary" href="' + safe(value) + '" target="_blank" rel="noopener noreferrer">' + platformLabels[key] + '</a>')
         .join("");
-      return '<article class="latest-card"><a class="latest-art latest-image" href="' + safe(youtubeMusicUrl) + '" target="_blank" rel="noopener noreferrer">' + cover + '</a><div class="latest-info"><span class="latest-tag">NEW RELEASE' + (date ? ' · ' + date : '') + '</span><h3>' + safe(title) + '</h3><p>DkRapria · Hindi / Haryanvi Music</p><div class="song-actions"><a class="play-link" href="' + safe(youtubeMusicUrl) + '" target="_blank" rel="noopener noreferrer">▶ YouTube Music</a>' + platformLinks + '</div></div></article>';
+      return '<article class="latest-card"><a class="latest-art latest-image" href="' + safe(youtubeMusicUrl) + '" target="_blank" rel="noopener noreferrer">' + cover + '</a><div class="latest-info"><span class="latest-tag">NEW RELEASE' + (date ? ' · ' + date : '') + '</span><h3>' + safe(title) + '</h3><p>DkRapria · ' + safe(genre) + '</p><div class="song-actions"><a class="play-link" href="' + safe(youtubeMusicUrl) + '" target="_blank" rel="noopener noreferrer">▶ YouTube Music</a>' + platformLinks + '</div></div></article>';
     }).join("");
     const description = document.querySelector("#latest .section-desc");
     if (description) description.textContent = "Automatically refreshed from the DkRapria official YouTube channel. Verified direct platform links are shown when available; devotional tracks stay in the separate Bhakti Songs section.";
