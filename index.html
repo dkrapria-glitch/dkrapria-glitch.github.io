@@ -206,7 +206,11 @@ footer{border-top:1px solid #ffffff18;padding:28px 0;color:#9c8993;font-size:11p
         amazonMusic: "♫ Amazon Music",
         jiosaavn: "♫ JioSaavn",
         gaana: "♫ Gaana",
-        wynk: "♫ Wynk Music"
+        wynk: "♫ Wynk Music",
+        soundcloud: "♫ SoundCloud",
+        deezer: "♫ Deezer",
+        pandora: "♫ Pandora",
+        shazam: "♫ Shazam"
       };
       const platformLinks = Object.entries(song.platforms || {})
         .filter(([key, value]) => platformLabels[key] && typeof value === "string" && /^https:\/\//i.test(value))
