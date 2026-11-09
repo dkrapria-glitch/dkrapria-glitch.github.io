@@ -197,7 +197,7 @@ footer{border-top:1px solid #ffffff18;padding:28px 0;color:#9c8993;font-size:11p
       const youtubeMusicUrl = String((song.platforms && song.platforms.youtubeMusic) || url);
       const genre = [song.genre || song.language || "Hindi / Haryanvi Music", song.duration].filter(Boolean).join(" · ");
       const thumb = String(song.thumbnail || "");
-      const date = song.published ? new Date(song.published).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" }) : "";
+      const releaseDate = song.releaseDate || song.published; const date = releaseDate ? new Date(releaseDate).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" }) : "";
       const safe = value => value.replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
       const cover = thumb ? '<img src="' + safe(thumb) + '" alt="' + safe(title) + ' cover thumbnail" loading="lazy" decoding="async">' : '<div class="latest-art-fallback">' + safe(title) + '<small>DKRAPRIA · 2026</small></div>';
       // Show only verified, song-specific platform URLs supplied in the feed.

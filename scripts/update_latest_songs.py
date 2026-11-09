@@ -160,8 +160,8 @@ def main():
             "Keeping the previous website feed unchanged."
         )
 
-    # Sorting is stable, so entries with no date retain the channel's newest-first order.
-    songs.sort(key=lambda item: item.get("published") or "", reverse=True)
+    # Prefer verified distributor release dates; fall back to the YouTube upload date.
+    songs.sort(key=lambda item: item.get("releaseDate") or item.get("published") or "", reverse=True)
     payload = {
         "source": "DkRapria official YouTube channel",
         "channelUrl": CHANNEL_URL,
