@@ -1,6 +1,15 @@
 {
   "maxTracks": 5,
-  "tracks": [],
+  "tracks": [
+    {
+      "title": "Happy Birthday Haryana 🎂 | हरियाणा दिवस स्पेशल",
+      "artist": "DkRapria",
+      "audio": "/songs/happy-birthday-haryana/happy-birthday-haryana.mp3",
+      "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/1d/dd/a3/1ddda396-cde5-78f3-d09c-82e8b1338052/8909705802105.jpg/600x600bf-60.jpg",
+      "duration": "3:34",
+      "category": "Haryanvi"
+    }
+  ],
   "ads": {
     "audioPreRollEnabled": false,
     "vastTagUrl": "",
