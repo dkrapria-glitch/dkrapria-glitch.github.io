@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#10090d">
+<title>DkRapria Music Player | Listen to Latest Songs</title>
+<meta name="description" content="Listen to selected DkRapria songs directly on the official website. Explore the latest five featured tracks and find the complete music catalogue on streaming platforms.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://dkrapria-glitch.github.io/music-player.html">
+<meta property="og:title" content="DkRapria Music Player">
+<meta property="og:description" content="Listen to selected songs by DkRapria on the official website.">
+<meta property="og:url" content="https://dkrapria-glitch.github.io/music-player.html">
+<meta property="og:image" content="https://dkrapria-glitch.github.io/dkrapria-artist.jpg">
+<style>
+:root{--bg:#10090d;--panel:#1b1018;--wine:#641b36;--gold:#e6bd75;--cream:#f7eee6;--muted:#b9aab1}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--cream);font-family:Inter,Arial,sans-serif;line-height:1.55}a{color:inherit;text-decoration:none}.wrap{width:min(1060px,92%);margin:auto}
+header{border-bottom:1px solid #ffffff18;background:#10090d}header .nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand img{width:140px;max-height:54px;object-fit:contain;display:block}nav{display:flex;gap:20px;flex-wrap:wrap;font-size:12px;color:#e7dce1}nav a:hover,.text-link:hover{color:var(--gold)}
+main{padding:58px 0 84px}.eyebrow{color:var(--gold);font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:800}.intro{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:28px}h1{font-size:clamp(38px,7vw,66px);line-height:1.02;letter-spacing:-2px;margin:12px 0}.intro p{color:var(--muted);max-width:440px;margin:0 0 5px;font-size:14px}
+.player-shell{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(270px,.85fr);gap:22px;background:linear-gradient(135deg,#29101d,#160d13 65%);border:1px solid #e6bd7545;padding:22px;border-radius:12px;box-shadow:0 20px 60px #0004}
+.now-playing{display:flex;gap:18px;align-items:center;min-width:0}.cover{width:132px;aspect-ratio:1;flex:none;display:grid;place-items:center;text-align:center;padding:12px;background:radial-gradient(circle at 50% 35%,#a34d54,#321323 72%,#10090d);border:1px solid #e6bd7577;color:#f7eee6;font-weight:900;font-size:25px;line-height:1.1}.cover img{width:100%;height:100%;object-fit:cover}.track-copy{min-width:0}.track-copy h2{font-size:clamp(20px,3vw,29px);line-height:1.2;margin:0 0 7px;overflow-wrap:anywhere}.track-copy p{color:var(--muted);font-size:13px;margin:0}.track-status{display:inline-block;margin-top:12px;color:var(--gold);font-size:10px;letter-spacing:1.5px;text-transform:uppercase}
+.controls{margin-top:22px}.timeline{width:100%;accent-color:var(--gold)}.time-row{display:flex;justify-content:space-between;color:var(--muted);font-size:11px}.buttons{display:flex;justify-content:center;align-items:center;gap:20px;margin-top:12px}.buttons button{border:0;background:transparent;color:var(--cream);font-size:23px;cursor:pointer}.buttons .main-play{width:54px;height:54px;border-radius:50%;background:var(--gold);color:#211018;font-size:23px;font-weight:900}.buttons button:disabled{opacity:.35;cursor:not-allowed}
+.playlist{border-left:1px solid #ffffff20;padding-left:22px}.playlist h3{font-size:15px;margin:0 0 12px;color:var(--gold);letter-spacing:1px}.track-list{display:grid;gap:8px;max-height:300px;overflow:auto}.track-row{display:flex;align-items:center;gap:10px;padding:10px;border:1px solid #ffffff16;background:#10090d88;border-radius:7px;text-align:left;color:var(--cream);cursor:pointer;width:100%;min-width:0}.track-row[aria-current=true]{border-color:var(--gold);background:#e6bd7512}.track-number{color:var(--gold);font-size:12px;width:18px;flex:none}.track-row span:nth-child(2){min-width:0;flex:1}.track-row strong{display:block;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.track-row small{display:block;color:var(--muted);font-size:10px}.track-row em{font-style:normal;color:var(--muted);font-size:10px}
+.empty{padding:28px 18px;border:1px dashed #e6bd7560;border-radius:9px;text-align:center;color:var(--muted);font-size:13px}.empty strong{display:block;color:var(--cream);font-size:17px;margin-bottom:7px}.empty .gold{color:var(--gold)}
+.ad-note{margin:18px 0 0;padding:13px 16px;background:#1b1018;border:1px solid #ffffff18;border-radius:8px;color:var(--muted);font-size:12px}.ad-note strong{color:var(--gold)}
+.catalog{margin-top:46px}.catalog-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:16px}.catalog h2{font-size:26px;margin:6px 0}.catalog p{color:var(--muted);font-size:13px;margin:0}.platform-link{display:inline-flex;margin-top:18px;padding:12px 16px;border:1px solid var(--gold);color:var(--gold);font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase}
+footer{border-top:1px solid #ffffff18;padding:25px 0;color:#9c8993;font-size:11px}.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media(max-width:760px){header .nav{align-items:flex-start;padding:16px 0}.brand img{width:112px}nav{justify-content:flex-end;gap:9px 12px;max-width:calc(100% - 125px);font-size:10px}.intro{display:block}.intro p{margin-top:14px}.player-shell{grid-template-columns:1fr}.playlist{border-left:0;border-top:1px solid #ffffff20;padding:18px 0 0}.cover{width:104px}.now-playing{gap:13px}}
+@media(max-width:420px){main{padding-top:38px}.player-shell{padding:14px}.cover{width:88px;font-size:19px}.track-copy h2{font-size:19px}.buttons{gap:14px}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav"><a class="brand" href="/" aria-label="DkRapria Official home"><img src="/file_00000000dac08208a69cadb7e4345815.png" alt="DkRapria Originals"></a><nav aria-label="Main navigation"><a href="/">HOME</a><a href="/#latest">LATEST</a><a href="/songs.html">ALL SONGS</a><a href="/music-player.html" aria-current="page">MUSIC PLAYER</a></nav></div></header>
+<main class="wrap">
+<div class="intro"><div><div class="eyebrow">DkRapria · Official Music</div><h1>Music <span style="color:var(--gold)">Player.</span></h1></div><p>Listen to a small selection of featured songs here. The complete catalogue remains available through official music platforms.</p></div>
+<section class="player-shell" aria-label="Music player">
+<div>
+<div class="now-playing">
+<div class="cover" id="current-cover" aria-label="Album artwork">DK<br>RAPRIA</div>
+<div class="track-copy"><h2 id="current-title">Your next favourite song</h2><p id="current-artist">DkRapria</p><span class="track-status" id="player-status">5 featured song slots</span></div>
+</div>
+<div class="controls">
+<audio id="audio" preload="none"></audio>
+<input class="timeline" id="seek" type="range" min="0" max="100" value="0" aria-label="Seek song" disabled>
+<div class="time-row"><span id="elapsed">0:00</span><span id="duration">0:00</span></div>
+<div class="buttons"><button id="previous" aria-label="Previous song" disabled>⏮</button><button class="main-play" id="play" aria-label="Play" disabled>▶</button><button id="next" aria-label="Next song" disabled>⏭</button></div>
+</div>
+</div>
+<div class="playlist"><h3>FEATURED TRACKS · MAX 5</h3><div class="track-list" id="track-list"><div class="empty"><strong>Music library is being prepared</strong>अभी तक कोई MP3 फाइल जोड़ी नहीं गई है। पाँच गाने मिलने पर वे यहाँ दिखाई देंगे।</div></div></div>
+</section>
+<div class="ad-note"><strong>Advertisement status:</strong> Audio pre-roll और Google AdSense अभी connect नहीं किए गए हैं। इनके लिए approved ad account / VAST tag और सही publisher details मिलने के बाद ही विज्ञापन चालू होंगे। अभी Player में गाना सीधे चलेगा।</div>
+<section class="catalog"><div class="catalog-head"><div><div class="eyebrow">Explore the full catalogue</div><h2>बाकी सभी गाने</h2><p>पूरे गाने सुनने के लिए आधिकारिक म्यूजिक प्लेटफॉर्म पर जाएँ।</p></div></div><a class="platform-link" href="/songs.html">View all songs & streaming links ↗</a></section>
+</main>
+<footer><div class="wrap foot"><span>© <span id="year"></span> DkRapria Music</span><span>Official website · Hindi · Haryanvi · Devotional</span></div></footer>
+<script>
+(() => {
+ const audio=document.getElementById('audio'), list=document.getElementById('track-list');
+ const play=document.getElementById('play'), prev=document.getElementById('previous'), next=document.getElementById('next');
+ const seek=document.getElementById('seek'); let tracks=[], current=-1;
+ const fmt=s=>{if(!Number.isFinite(s))return '0:00';const m=Math.floor(s/60),r=Math.floor(s%60);return m+':'+String(r).padStart(2,'0')};
+ function selectTrack(i,autoplay=true){if(i<0||i>=tracks.length)return;current=i;const t=tracks[i];audio.src=t.audio;document.getElementById('current-title').textContent=t.title;document.getElementById('current-artist').textContent=t.artist||'DkRapria';document.getElementById('player-status').textContent='Featured track '+(i+1)+' of '+tracks.length;const cover=document.getElementById('current-cover');cover.innerHTML=t.cover?'<img src="'+t.cover.replace(/"/g,'&quot;')+'" alt="">':'DK<br>RAPRIA';document.querySelectorAll('.track-row').forEach((el,n)=>el.setAttribute('aria-current',String(n===i)));if(autoplay)audio.play().catch(()=>{document.getElementById('player-status').textContent='Tap play to start listening'});play.textContent='Ⅱ';play.setAttribute('aria-label','Pause');}
+ function render(){list.innerHTML='';tracks=tracks.filter(t=>t&&t.title&&t.audio).slice(0,5);if(!tracks.length){list.innerHTML='<div class="empty"><strong>Music library is being prepared</strong>अभी तक कोई MP3 फाइल जोड़ी नहीं गई है। पाँच गाने मिलने पर वे यहाँ दिखाई देंगे।</div>';return;}tracks.forEach((t,i)=>{const b=document.createElement('button');b.className='track-row';b.type='button';b.innerHTML='<span class="track-number">'+String(i+1).padStart(2,'0')+'</span><span><strong></strong><small></small></span><em>PLAY</em>';b.querySelector('strong').textContent=t.title;b.querySelector('small').textContent=t.artist||'DkRapria';b.addEventListener('click',()=>selectTrack(i,true));list.appendChild(b)});[play,prev,next].forEach(b=>b.disabled=false);seek.disabled=false;selectTrack(0,false);}
+ fetch('/music-player.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('config');return r.json()}).then(data=>{tracks=Array.isArray(data.tracks)?data.tracks.slice(0,5):[];render()}).catch(()=>{list.innerHTML='<div class="empty"><strong>Music library unavailable</strong>कृपया कुछ देर बाद फिर कोशिश करें।</div>'});
+ play.addEventListener('click',()=>{if(current<0)return;if(audio.paused){audio.play().catch(()=>{});play.textContent='Ⅱ';play.setAttribute('aria-label','Pause')}else{audio.pause();play.textContent='▶';play.setAttribute('aria-label','Play')}});
+ prev.addEventListener('click',()=>selectTrack((current-1+tracks.length)%tracks.length,true));next.addEventListener('click',()=>selectTrack((current+1)%tracks.length,true));
+ audio.addEventListener('timeupdate',()=>{if(audio.duration){seek.value=audio.currentTime/audio.duration*100;document.getElementById('elapsed').textContent=fmt(audio.currentTime);document.getElementById('duration').textContent=fmt(audio.duration)}});
+ seek.addEventListener('input',()=>{if(audio.duration)audio.currentTime=Number(seek.value)/100*audio.duration});
+ audio.addEventListener('ended',()=>{if(current<tracks.length-1)selectTrack(current+1,true);else{play.textContent='▶';play.setAttribute('aria-label','Play')}});
+ audio.addEventListener('pause',()=>{play.textContent='▶';play.setAttribute('aria-label','Play')});
+ audio.addEventListener('play',()=>{play.textContent='Ⅱ';play.setAttribute('aria-label','Pause')});
+ document.getElementById('year').textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
