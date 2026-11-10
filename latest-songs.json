@@ -25,51 +25,72 @@
     {
       "title": "वो नब्बे आळा हरियाणा 🥹❤️ | कित गया रे म्हारा जमाणा | Haryanvi Nostalgia Song 2026 | DkRapria",
       "videoId": "I9s72JpYL7A",
-      "url": "https://music.youtube.com/watch?v=I9s72JpYL7A",
+      "url": "https://www.youtube.com/watch?v=I9s72JpYL7A",
       "thumbnail": "https://i.ytimg.com/vi/I9s72JpYL7A/hqdefault.jpg",
-      "published": "2026-10-18T00:00:00Z"
+      "published": "2026-10-18T00:00:00Z",
+      "platforms": {
+        "youtube": "https://www.youtube.com/watch?v=I9s72JpYL7A"
+      }
     },
     {
       "title": "सस्ती बदमाशी | DkRapria | Haryanvi Social Satire Song | SunoDk  new song",
       "videoId": "vw8l12aZieM",
-      "url": "https://music.youtube.com/watch?v=vw8l12aZieM",
+      "url": "https://www.youtube.com/watch?v=vw8l12aZieM",
       "thumbnail": "https://i.ytimg.com/vi/vw8l12aZieM/hqdefault.jpg",
-      "published": "2026-10-09T00:00:00Z"
+      "published": "2026-10-09T00:00:00Z",
+      "platforms": {
+        "youtube": "https://www.youtube.com/watch?v=vw8l12aZieM"
+      }
     },
     {
       "title": "औरत होने का दर्द , Lo-fi Version | बेटी से बहू बनते-बनते अपना वजूद खो दिया |  DKRapria",
       "videoId": "yG1KrjJsat0",
-      "url": "https://music.youtube.com/watch?v=yG1KrjJsat0",
+      "url": "https://www.youtube.com/watch?v=yG1KrjJsat0",
       "thumbnail": "https://i.ytimg.com/vi/yG1KrjJsat0/hqdefault.jpg",
-      "published": "2026-10-06T00:00:00Z"
+      "published": "2026-10-06T00:00:00Z",
+      "platforms": {
+        "youtube": "https://www.youtube.com/watch?v=yG1KrjJsat0"
+      }
     },
     {
       "title": "औरत होने का दर्द 💔 | मैं बेगुनाह थी| Heart Touching Song | DKRapria",
       "videoId": "hA_pcKyuEmc",
-      "url": "https://music.youtube.com/watch?v=hA_pcKyuEmc",
+      "url": "https://www.youtube.com/watch?v=hA_pcKyuEmc",
       "thumbnail": "https://i.ytimg.com/vi/hA_pcKyuEmc/hqdefault.jpg",
-      "published": ""
+      "published": "",
+      "platforms": {
+        "youtube": "https://www.youtube.com/watch?v=hA_pcKyuEmc"
+      }
     },
     {
       "title": "चाँद से पहले तू 🌙 | Karwa Chauth Special Song | DKRapria",
       "videoId": "K_jkEdnHP1o",
-      "url": "https://music.youtube.com/watch?v=K_jkEdnHP1o",
+      "url": "https://www.youtube.com/watch?v=K_jkEdnHP1o",
       "thumbnail": "https://i.ytimg.com/vi/K_jkEdnHP1o/hqdefault.jpg",
-      "published": ""
+      "published": "",
+      "platforms": {
+        "youtube": "https://www.youtube.com/watch?v=K_jkEdnHP1o"
+      }
     },
     {
       "title": "CONTROVERSY 🔥 |  | New Haryanvi Song 2026 | DKRapria Rapsong",
       "videoId": "n3NUaHnDxiw",
-      "url": "https://music.youtube.com/watch?v=n3NUaHnDxiw",
+      "url": "https://www.youtube.com/watch?v=n3NUaHnDxiw",
       "thumbnail": "https://i.ytimg.com/vi/n3NUaHnDxiw/hqdefault.jpg",
-      "published": ""
+      "published": "",
+      "platforms": {
+        "youtube": "https://www.youtube.com/watch?v=n3NUaHnDxiw"
+      }
     },
     {
       "title": "बदमाश दादी | Haryanvi HipHop Song | दादी ओहो दादी, कोन्या इतनी सादी म्हारी दादी 😎👵 | DkRapria",
       "videoId": "jbHNYXVF5so",
-      "url": "https://music.youtube.com/watch?v=jbHNYXVF5so",
+      "url": "https://www.youtube.com/watch?v=jbHNYXVF5so",
       "thumbnail": "https://i.ytimg.com/vi/jbHNYXVF5so/hqdefault.jpg",
-      "published": ""
+      "published": "",
+      "platforms": {
+        "youtube": "https://www.youtube.com/watch?v=jbHNYXVF5so"
+      }
     }
   ]
 }

@@ -131,24 +131,38 @@ def main():
                 except Exception as error:
                     print(f"Could not read upload date for {video_id}: {error}")
 
-            # Preserve manually verified YouTube Music release playlists and
-            # platform URLs; never replace them with guessed video-ID URLs.
-            music_url = previous.get("url", "")
-            if not isinstance(music_url, str) or not music_url.startswith(
-                "https://music.youtube.com/"
+            # A channel video ID is a direct YouTube URL, not proof of a
+            # matching YouTube Music track. Preserve only manually verified
+            # YouTube Music watch URLs; never synthesize them from video IDs.
+            platforms = (
+                dict(previous.get("platforms", {}))
+                if isinstance(previous.get("platforms"), dict)
+                else {}
+            )
+            youtube_url = f"https://www.youtube.com/watch?v={video_id}"
+            existing_youtube = platforms.get("youtube")
+            if not isinstance(existing_youtube, str) or not (
+                existing_youtube.startswith("https://www.youtube.com/watch?v=")
+                or existing_youtube.startswith("https://youtu.be/")
             ):
-                music_url = f"https://music.youtube.com/watch?v={video_id}"
+                platforms["youtube"] = youtube_url
 
+            music_url = platforms.get("youtubeMusic")
+            if not isinstance(music_url, str) or not music_url.startswith(
+                "https://music.youtube.com/watch?v="
+            ):
+                music_url = ""
+
+            primary_url = music_url or platforms["youtube"]
             song = dict(previous)
             song.update({
                 "title": title,
                 "videoId": video_id,
-                "url": music_url,
+                "url": primary_url,
                 "thumbnail": get_thumbnail(entry, video_id, previous),
                 "published": published,
             })
-            if isinstance(previous.get("platforms"), dict):
-                song["platforms"] = dict(previous["platforms"])
+            song["platforms"] = platforms
             songs.append(song)
 
             if len(songs) >= MAX_SONGS:
