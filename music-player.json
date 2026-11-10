@@ -1,0 +1,11 @@
+{
+  "maxTracks": 5,
+  "tracks": [],
+  "ads": {
+    "audioPreRollEnabled": false,
+    "vastTagUrl": "",
+    "googleAdSenseEnabled": false,
+    "note": "Enable only after approved provider details and policy review. Do not force AdSense display ads as audio pre-roll."
+  },
+  "catalogueUrl": "/songs.html"
+}
