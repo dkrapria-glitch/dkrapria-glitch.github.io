@@ -141,83 +141,110 @@ def main():
 
         previous = previous_by_id.get(video_id, {})
         published = get_published(entry) or previous.get("published", "")
-        sort_date = previous.get("releaseDate") or published
-        candidates.append(
-            (entry, source_channel, video_id, title, previous, published, sort_date)
-        )
+        candidates.append({
+            "entry": entry,
+            "source_channel": source_channel,
+            "video_id": video_id,
+            "title": title,
+            "previous": previous,
+            "published": published,
+        })
 
-    candidates.sort(key=lambda item: item[6], reverse=True)
+    # Flat playlist entries sometimes omit upload_date. Enrich the newest
+    # eligible candidates from each channel before sorting the combined feed.
+    per_channel_counts = {}
+    with yt_dlp.YoutubeDL(detail_options) as detail_ydl:
+        for candidate in candidates:
+            source_channel = candidate["source_channel"]
+            per_channel_counts[source_channel] = (
+                per_channel_counts.get(source_channel, 0) + 1
+            )
+            if candidate["published"] or per_channel_counts[source_channel] > MAX_SONGS:
+                continue
+            try:
+                details = detail_ydl.extract_info(
+                    f"https://www.youtube.com/watch?v={candidate['video_id']}",
+                    download=False,
+                )
+                if details:
+                    candidate["published"] = get_published(details)
+            except Exception as error:
+                print(
+                    f"Could not read upload date for "
+                    f"{candidate['video_id']}: {error}"
+                )
+
+    candidates.sort(
+        key=lambda item: (
+            item["previous"].get("releaseDate")
+            or item["published"]
+            or ""
+        ),
+        reverse=True,
+    )
     songs = []
 
-    with yt_dlp.YoutubeDL(detail_options) as detail_ydl:
-        for entry, source_channel, video_id, title, previous, published, _ in candidates:
-            if not published:
-                try:
-                    details = detail_ydl.extract_info(
-                        f"https://www.youtube.com/watch?v={video_id}",
-                        download=False,
-                    )
-                    if details:
-                        published = get_published(details)
-                except Exception as error:
-                    print(f"Could not read upload date for {video_id}: {error}")
+    for candidate in candidates[:MAX_SONGS]:
+        entry = candidate["entry"]
+        source_channel = candidate["source_channel"]
+        video_id = candidate["video_id"]
+        title = candidate["title"]
+        previous = candidate["previous"]
+        published = candidate["published"]
 
-            # A channel video ID is a direct YouTube URL, not proof of a
-            # matching YouTube Music track. Preserve only manually verified
-            # YouTube Music watch URLs; never synthesize them from video IDs.
-            platforms = (
-                dict(previous.get("platforms", {}))
-                if isinstance(previous.get("platforms"), dict)
-                else {}
-            )
-            youtube_url = f"https://www.youtube.com/watch?v={video_id}"
-            existing_youtube = platforms.get("youtube")
-            if not isinstance(existing_youtube, str) or not (
-                existing_youtube.startswith("https://www.youtube.com/watch?v=")
-                or existing_youtube.startswith("https://youtu.be/")
-            ):
-                platforms["youtube"] = youtube_url
+        # A channel video ID is a direct YouTube URL, not proof of a
+        # matching YouTube Music track. Preserve only manually verified
+        # YouTube Music watch URLs; never synthesize them from video IDs.
+        platforms = (
+            dict(previous.get("platforms", {}))
+            if isinstance(previous.get("platforms"), dict)
+            else {}
+        )
+        youtube_url = f"https://www.youtube.com/watch?v={video_id}"
+        existing_youtube = platforms.get("youtube")
+        if not isinstance(existing_youtube, str) or not (
+            existing_youtube.startswith("https://www.youtube.com/watch?v=")
+            or existing_youtube.startswith("https://youtu.be/")
+        ):
+            platforms["youtube"] = youtube_url
 
-            music_url = platforms.get("youtubeMusic")
-            if not isinstance(music_url, str) or not music_url.startswith(
-                "https://music.youtube.com/watch?v="
-            ):
-                music_url = ""
+        music_url = platforms.get("youtubeMusic")
+        if not isinstance(music_url, str) or not music_url.startswith(
+            "https://music.youtube.com/watch?v="
+        ):
+            music_url = ""
 
-            primary_url = music_url or platforms["youtube"]
-            song = dict(previous)
-            song.update({
-                "title": title,
-                "videoId": video_id,
-                "url": primary_url,
-                "thumbnail": get_thumbnail(entry, video_id, previous),
-                "published": published,
-            })
+        primary_url = music_url or platforms["youtube"]
+        song = dict(previous)
+        song.update({
+            "title": title,
+            "videoId": video_id,
+            "url": primary_url,
+            "thumbnail": get_thumbnail(entry, video_id, previous),
+            "published": published,
+        })
 
-            duration = entry.get("duration")
-            if duration and not song.get("duration"):
-                try:
-                    total_seconds = int(float(duration))
-                    song["duration"] = (
-                        f"{total_seconds // 60}:{total_seconds % 60:02d}"
-                    )
-                except (TypeError, ValueError, OverflowError):
-                    pass
+        duration = entry.get("duration")
+        if duration and not song.get("duration"):
+            try:
+                total_seconds = int(float(duration))
+                song["duration"] = (
+                    f"{total_seconds // 60}:{total_seconds % 60:02d}"
+                )
+            except (TypeError, ValueError, OverflowError):
+                pass
 
-            if source_channel == "SunoDk":
-                song["artist"] = SECONDARY_CHANNEL_CREDIT
-                song["sourceChannel"] = "SunoDk"
-                song.setdefault("genre", "Hindi Original Song")
-                song.setdefault("language", "Hindi")
-            else:
-                song.pop("artist", None)
-                song.pop("sourceChannel", None)
+        if source_channel == "SunoDk":
+            song["artist"] = SECONDARY_CHANNEL_CREDIT
+            song["sourceChannel"] = "SunoDk"
+            song.setdefault("genre", "Hindi Original Song")
+            song.setdefault("language", "Hindi")
+        else:
+            song.pop("artist", None)
+            song.pop("sourceChannel", None)
 
-            song["platforms"] = platforms
-            songs.append(song)
-
-            if len(songs) >= MAX_SONGS:
-                break
+        song["platforms"] = platforms
+        songs.append(song)
 
     if not songs:
         raise RuntimeError(
