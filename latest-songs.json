@@ -1,8 +1,24 @@
 {
-  "source": "DkRapria official YouTube channel",
+  "source": "DkRapria official YouTube channel + SunoDk uploads credited to DkRapria Originals",
   "channelUrl": "https://www.youtube.com/@dkrapria/videos",
-  "updatedAt": "2026-11-11T00:46:39.319566+00:00",
+  "updatedAt": "2026-11-11T22:54:24.000Z",
   "songs": [
+    {
+      "title": "दुनिया बनाने वाले, तेरे मन में समाई| इमोशनल Hindi Song | DkRapria Originals",
+      "videoId": "Xp00LJnTFqk",
+      "url": "https://music.youtube.com/watch?v=Xp00LJnTFqk",
+      "thumbnail": "https://i.ytimg.com/vi/Xp00LJnTFqk/hqdefault.jpg",
+      "published": "2026-11-10T00:00:00Z",
+      "duration": "4:55",
+      "genre": "Hindi Emotional Song",
+      "language": "Hindi",
+      "artist": "DkRapria Originals",
+      "sourceChannel": "SunoDk",
+      "platforms": {
+        "youtubeMusic": "https://music.youtube.com/watch?v=Xp00LJnTFqk",
+        "youtube": "https://www.youtube.com/watch?v=Xp00LJnTFqk"
+      }
+    },
     {
       "title": "Happy Birthday Haryana 🎂 | Dk Rapria | हरियाणा दिवस स्पेशल | New Haryanvi Song 2026",
       "videoId": "1wQeXvKm0IQ",
@@ -81,16 +97,10 @@
       "platforms": {
         "youtube": "https://www.youtube.com/watch?v=n3NUaHnDxiw"
       }
-    },
-    {
-      "title": "बदमाश दादी | Haryanvi HipHop Song | दादी ओहो दादी, कोन्या इतनी सादी म्हारी दादी 😎👵 | DkRapria",
-      "videoId": "jbHNYXVF5so",
-      "url": "https://www.youtube.com/watch?v=jbHNYXVF5so",
-      "thumbnail": "https://i.ytimg.com/vi/jbHNYXVF5so/hqdefault.jpg",
-      "published": "",
-      "platforms": {
-        "youtube": "https://www.youtube.com/watch?v=jbHNYXVF5so"
-      }
     }
+  ],
+  "sourceChannels": [
+    "https://www.youtube.com/@dkrapria/videos",
+    "https://www.youtube.com/channel/UCokS_ORFCf6Ql_LBAFF1Ohg/videos"
   ]
 }

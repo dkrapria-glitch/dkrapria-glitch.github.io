@@ -5,6 +5,8 @@ from pathlib import Path
 import yt_dlp
 
 CHANNEL_URL = "https://www.youtube.com/@dkrapria/videos"
+SECONDARY_CHANNEL_URL = "https://www.youtube.com/channel/UCokS_ORFCf6Ql_LBAFF1Ohg/videos"
+SECONDARY_CHANNEL_CREDIT = "DkRapria Originals"
 OUT = Path("latest-songs.json")
 MAX_RESULTS = 40
 MAX_SONGS = 8
@@ -98,28 +100,57 @@ def main():
 
     with yt_dlp.YoutubeDL(options) as ydl:
         channel = ydl.extract_info(CHANNEL_URL, download=False)
+        secondary_channel = None
+        try:
+            secondary_channel = ydl.extract_info(
+                SECONDARY_CHANNEL_URL, download=False
+            )
+        except Exception as error:
+            print(f"Could not read SunoDk channel: {error}")
 
     if not channel:
         raise RuntimeError("Could not read the DkRapria YouTube channel.")
 
-    entries = channel.get("entries") or []
-    songs = []
+    # Include only non-devotional SunoDk uploads whose title explicitly credits
+    # DkRapria. This keeps unrelated channel videos out of the artist feed.
+    entries = [
+        (entry, "DkRapria", False)
+        for entry in (channel.get("entries") or [])
+        if entry
+    ]
+    if secondary_channel:
+        entries.extend(
+            (entry, "SunoDk", True)
+            for entry in (secondary_channel.get("entries") or [])
+            if entry
+        )
+
+    candidates = []
     seen_video_ids = set()
+    for entry, source_channel, is_secondary in entries:
+        title = (entry.get("title") or "").strip()
+        video_id = (entry.get("id") or "").strip()
+        if not title or not video_id or video_id in seen_video_ids:
+            continue
+        seen_video_ids.add(video_id)
+
+        if is_secondary and "dkrapria" not in title.casefold():
+            continue
+        if is_devotional(title, video_id):
+            continue
+
+        previous = previous_by_id.get(video_id, {})
+        published = get_published(entry) or previous.get("published", "")
+        sort_date = previous.get("releaseDate") or published
+        candidates.append(
+            (entry, source_channel, video_id, title, previous, published, sort_date)
+        )
+
+    candidates.sort(key=lambda item: item[6], reverse=True)
+    songs = []
 
     with yt_dlp.YoutubeDL(detail_options) as detail_ydl:
-        for entry in entries:
-            if not entry:
-                continue
-            title = (entry.get("title") or "").strip()
-            video_id = (entry.get("id") or "").strip()
-            if not title or not video_id or video_id in seen_video_ids:
-                continue
-            seen_video_ids.add(video_id)
-            if is_devotional(title, video_id):
-                continue
-
-            previous = previous_by_id.get(video_id, {})
-            published = get_published(entry) or previous.get("published", "")
+        for entry, source_channel, video_id, title, previous, published, _ in candidates:
             if not published:
                 try:
                     details = detail_ydl.extract_info(
@@ -162,6 +193,26 @@ def main():
                 "thumbnail": get_thumbnail(entry, video_id, previous),
                 "published": published,
             })
+
+            duration = entry.get("duration")
+            if duration and not song.get("duration"):
+                try:
+                    total_seconds = int(float(duration))
+                    song["duration"] = (
+                        f"{total_seconds // 60}:{total_seconds % 60:02d}"
+                    )
+                except (TypeError, ValueError, OverflowError):
+                    pass
+
+            if source_channel == "SunoDk":
+                song["artist"] = SECONDARY_CHANNEL_CREDIT
+                song["sourceChannel"] = "SunoDk"
+                song.setdefault("genre", "Hindi Original Song")
+                song.setdefault("language", "Hindi")
+            else:
+                song.pop("artist", None)
+                song.pop("sourceChannel", None)
+
             song["platforms"] = platforms
             songs.append(song)
 
@@ -177,8 +228,9 @@ def main():
     # Prefer verified distributor release dates; fall back to the YouTube upload date.
     songs.sort(key=lambda item: item.get("releaseDate") or item.get("published") or "", reverse=True)
     payload = {
-        "source": "DkRapria official YouTube channel",
+        "source": "DkRapria official YouTube channel + SunoDk uploads credited to DkRapria Originals",
         "channelUrl": CHANNEL_URL,
+        "sourceChannels": [CHANNEL_URL, SECONDARY_CHANNEL_URL],
         "updatedAt": datetime.now(timezone.utc).isoformat(),
         "songs": songs[:MAX_SONGS],
     }
