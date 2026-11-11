@@ -25,6 +25,32 @@ DEVOTIONAL_TERMS = (
 )
 KNOWN_DEVOTIONAL_IDS = {"IBhqbDGe8a8", "pKo-YZtCPqo", "XtZwYw7i_4k"}
 
+# Verified distributor release not consistently surfaced in either channel feed.
+# Keep it in Latest Songs and preserve only the direct URLs confirmed for this recording.
+MANUAL_RELEASES = {
+    "ivQeQKEF6qs": {
+        "title": "Aurat Hone Ka Dard Part 2 Main Begunah Thi",
+        "displayTitle": "औरत होने का दर्द 💔 | Part 2 – मैं बेगुनाह थी",
+        "url": "https://music.youtube.com/watch?v=ivQeQKEF6qs",
+        "thumbnail": "https://i.ytimg.com/vi/ivQeQKEF6qs/hqdefault.jpg",
+        "published": "2026-11-05T00:00:00Z",
+        "releaseDate": "2026-11-06",
+        "duration": "5:19",
+        "genre": "Hindi Sad Song",
+        "language": "Hindi",
+        "artist": "DkRapria",
+        "platforms": {
+            "youtubeMusic": "https://music.youtube.com/watch?v=ivQeQKEF6qs",
+            "youtube": "https://www.youtube.com/watch?v=ivQeQKEF6qs",
+            "appleMusic": "https://music.apple.com/in/album/aurat-hone-ka-dard-part-2-main-begunah-thi/6830467425?i=6830467426",
+            "soundcloud": "https://soundcloud.com/dkrapria/aurat-hone-ka-dard-part-2-main",
+            "deezer": "https://www.deezer.com/us/track/4389723821",
+            "pandora": "https://www.pandora.com/artist/dk-rapria/aurat-hone-ka-dard-part-2-main-begunah-thi/aurat-hone-ka-dard-part-2-main-begunah-thi/TRgcn926ZhrJXnw",
+            "gaana": "https://gaana.com/song/aurat-hone-ka-dard-part-2-main-begunah-thi"
+        }
+    }
+}
+
 
 def is_devotional(title, video_id):
     normalized = title.casefold()
@@ -246,6 +272,21 @@ def main():
         song["platforms"] = platforms
         songs.append(song)
 
+    # Retain verified distributor releases even when their Topic/channel upload
+    # is not returned by the two channel feeds. Manual metadata overrides stale data.
+    for video_id, metadata in MANUAL_RELEASES.items():
+        manual_song = dict(previous_by_id.get(video_id, {}))
+        manual_song.update(metadata)
+        manual_song["videoId"] = video_id
+        manual_song["platforms"] = dict(metadata["platforms"])
+        manual_song["url"] = (
+            manual_song["platforms"].get("youtubeMusic")
+            or manual_song["platforms"].get("youtube")
+            or ""
+        )
+        songs = [song for song in songs if song.get("videoId") != video_id]
+        songs.append(manual_song)
+
     if not songs:
         raise RuntimeError(
             "The channel was read, but no eligible songs were found. "
@@ -255,7 +296,7 @@ def main():
     # Prefer verified distributor release dates; fall back to the YouTube upload date.
     songs.sort(key=lambda item: item.get("releaseDate") or item.get("published") or "", reverse=True)
     payload = {
-        "source": "DkRapria official YouTube channel + SunoDk uploads credited to DkRapria Originals",
+        "source": "DkRapria official YouTube channel + SunoDk uploads credited to DkRapria Originals + verified distributor releases",
         "channelUrl": CHANNEL_URL,
         "sourceChannels": [CHANNEL_URL, SECONDARY_CHANNEL_URL],
         "updatedAt": datetime.now(timezone.utc).isoformat(),
