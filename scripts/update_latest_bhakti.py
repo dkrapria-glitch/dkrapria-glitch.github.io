@@ -37,6 +37,49 @@ HINDI_DEVOTIONAL_TERMS = (
 )
 KNOWN_DEVOTIONAL_IDS = {"PDaqBlUkPJo"}
 
+# Verified distributor releases linked to their exact SunoDk video cards.
+# Keep only direct, title/artist-matched URLs; no search pages or guessed links.
+MANUAL_RELEASES = {
+    "pLJv-l_D_VQ": {
+        "displayTitle": "राम जी राम जी, सबके बनाओ तुम बिगड़े काम जी",
+        "artist": "DkRapria",
+        "genre": "Hindi Devotional Bhajan",
+        "language": "Hindi",
+        "duration": "3:35",
+        "releaseDate": "2026-11-11",
+        "upc": "8909705839071",
+        "platforms": {
+            "youtube": "https://www.youtube.com/watch?v=pLJv-l_D_VQ",
+            "youtubeMusic": "https://music.youtube.com/watch?v=959fRJPZph4",
+            "songdew": "https://songdew.com/songs/ram-ji-ram-ji-sabke-banao-tum-bigde-kaam-ji-149355",
+            "spotify": "https://open.spotify.com/album/6ZraErwI9fQFPusX4NRlgT",
+            "appleMusic": "https://music.apple.com/us/song/ram-ji-ram-ji-sabke-banao-tum-bigde-kaam-ji/6831526868",
+            "deezer": "https://www.deezer.com/us/track/4395471691",
+            "pandora": "https://www.pandora.com/artist/dk-rapria/ram-ji-ram-ji-sabke-banao-tum-bigde-kaam-ji/ram-ji-ram-ji-sabke-banao-tum-bigde-kaam-ji/TR7Zk5KtKjjvjt2",
+            "jiosaavn": "https://www.jiosaavn.com/song/ram-ji-ram-ji-sabke-banao-tum-bigde-kaam-ji/RSQlekNGRmo",
+            "soundcloud": "https://soundcloud.com/dkrapria/ram-ji-ram-ji-sabke-banao-tum",
+            "musicLink": "https://musiclink.one/album/dk-rapria/ram-ji-ram-ji-sabke-banao-tum-bigde-kaam-ji"
+        }
+    },
+    "nh4bvuJ3JhE": {
+        "displayTitle": "मैं मिट्टी का खिलौना प्रभु",
+        "artist": "DkRapria",
+        "genre": "Hindi Devotional Bhajan",
+        "language": "Hindi",
+        "duration": "5:52",
+        "releaseDate": "2026-11-10",
+        "upc": "8909705826637",
+        "platforms": {
+            "youtube": "https://www.youtube.com/watch?v=nh4bvuJ3JhE",
+            "youtubeMusic": "https://music.youtube.com/watch?v=Cru3kLNUa-M",
+            "songdew": "https://songdew.com/songs/main-mitti-ka-khilauna-prabhu-149225",
+            "appleMusic": "https://music.apple.com/us/song/main-mitti-ka-khilauna-prabhu/6831146774",
+            "gaana": "https://gaana.com/song/main-mitti-ka-khilauna-prabhu",
+            "soundcloud": "https://soundcloud.com/dkrapria/main-mitti-ka-khilauna-prabhu"
+        }
+    }
+}
+
 
 def is_devotional(title: str, video_id: str) -> bool:
     if video_id in KNOWN_DEVOTIONAL_IDS:
@@ -116,7 +159,45 @@ def main() -> None:
             "published": get_published(entry),
         })
 
-    videos.sort(key=lambda item: item["published"], reverse=True)
+    # Flat playlist entries often omit upload dates and durations. Enrich the
+    # newest eligible devotional uploads so the website can sort and label them.
+    detail_options = {
+        "skip_download": True,
+        "quiet": True,
+        "no_warnings": True,
+        "ignoreerrors": True,
+        "socket_timeout": 12,
+        "retries": 1,
+        "extractor_retries": 1,
+    }
+    with yt_dlp.YoutubeDL(detail_options) as detail_ydl:
+        for video in videos[:20]:
+            try:
+                details = detail_ydl.extract_info(video["url"], download=False)
+                if not details:
+                    continue
+                video["published"] = get_published(details) or video["published"]
+                if details.get("duration"):
+                    total_seconds = int(float(details["duration"]))
+                    video["duration"] = (
+                        f"{total_seconds // 60}:{total_seconds % 60:02d}"
+                    )
+                if details.get("thumbnail"):
+                    video["thumbnail"] = get_thumbnail(details, video["videoId"])
+            except Exception as error:
+                print(f"Could not enrich {video['videoId']}: {error}")
+
+    # Attach verified distributor metadata after upload enrichment so release
+    # dates and distributor durations remain authoritative.
+    for video in videos:
+        manual = MANUAL_RELEASES.get(video["videoId"])
+        if manual:
+            video.update(manual)
+
+    videos.sort(
+        key=lambda item: item.get("releaseDate") or item.get("published") or "",
+        reverse=True,
+    )
     videos = videos[:MAX_VIDEOS]
 
     if not videos and OUT.exists():
