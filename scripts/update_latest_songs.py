@@ -272,6 +272,14 @@ def main():
         song["platforms"] = platforms
         songs.append(song)
 
+    # If the secondary channel is temporarily unavailable, retain previously
+    # verified SunoDk uploads rather than silently dropping them from the feed.
+    present_ids = {song.get("videoId") for song in songs}
+    for video_id, previous in previous_by_id.items():
+        if previous.get("sourceChannel") == "SunoDk" and video_id not in present_ids:
+            songs.append(previous)
+            present_ids.add(video_id)
+
     # Retain verified distributor releases even when their Topic/channel upload
     # is not returned by the two channel feeds. Manual metadata overrides stale data.
     for video_id, metadata in MANUAL_RELEASES.items():
