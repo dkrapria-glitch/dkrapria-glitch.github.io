@@ -8,10 +8,16 @@
 <meta name="description" content="Listen to selected DkRapria songs directly on the official website. Explore the latest five featured tracks and find the complete music catalogue on streaming platforms.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://dkrapria-glitch.github.io/music-player.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DkRapria Official">
 <meta property="og:title" content="DkRapria Music Player">
 <meta property="og:description" content="Listen to selected songs by DkRapria on the official website.">
 <meta property="og:url" content="https://dkrapria-glitch.github.io/music-player.html">
 <meta property="og:image" content="https://dkrapria-glitch.github.io/dkrapria-artist.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="DkRapria Music Player | Listen to Latest Songs">
+<meta name="twitter:description" content="Listen to selected DkRapria songs directly on the official website. Explore the latest five featured tracks and find the complete music catalogue on streaming platforms.">
+<meta name="twitter:image" content="https://dkrapria-glitch.github.io/dkrapria-artist.jpg">
 <style>
 :root{--bg:#10090d;--panel:#1b1018;--wine:#641b36;--gold:#e6bd75;--cream:#f7eee6;--muted:#b9aab1}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--cream);font-family:Inter,Arial,sans-serif;line-height:1.55}a{color:inherit;text-decoration:none}.wrap{width:min(1060px,92%);margin:auto}
@@ -24,7 +30,7 @@ main{padding:58px 0 84px}.eyebrow{color:var(--gold);font-size:11px;letter-spacin
 .empty{padding:28px 18px;border:1px dashed #e6bd7560;border-radius:9px;text-align:center;color:var(--muted);font-size:13px}.empty strong{display:block;color:var(--cream);font-size:17px;margin-bottom:7px}.empty .gold{color:var(--gold)}
 .ad-note{margin:18px 0 0;padding:13px 16px;background:#1b1018;border:1px solid #ffffff18;border-radius:8px;color:var(--muted);font-size:12px}.ad-note strong{color:var(--gold)}
 .catalog{margin-top:46px}.catalog-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:16px}.catalog h2{font-size:26px;margin:6px 0}.catalog p{color:var(--muted);font-size:13px;margin:0}.platform-link{display:inline-flex;margin-top:18px;padding:12px 16px;border:1px solid var(--gold);color:var(--gold);font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase}
-footer{border-top:1px solid #ffffff18;padding:25px 0;color:#9c8993;font-size:11px}.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer{border-top:1px solid #ffffff18;padding:25px 0;color:#9c8993;font-size:11px}.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}.foot-links{display:flex;gap:12px;flex-wrap:wrap}.foot-links a{color:var(--gold)}
 @media(max-width:760px){header .nav{align-items:flex-start;padding:16px 0}.brand img{width:112px}nav{justify-content:flex-end;gap:9px 12px;max-width:calc(100% - 125px);font-size:10px}.intro{display:block}.intro p{margin-top:14px}.player-shell{grid-template-columns:1fr}.playlist{border-left:0;border-top:1px solid #ffffff20;padding:18px 0 0}.cover{width:104px}.now-playing{gap:13px}}
 @media(max-width:420px){main{padding-top:38px}.player-shell{padding:14px}.cover{width:88px;font-size:19px}.track-copy h2{font-size:19px}.buttons{gap:14px}}
 </style>
@@ -51,7 +57,7 @@ footer{border-top:1px solid #ffffff18;padding:25px 0;color:#9c8993;font-size:11p
 <div class="ad-note"><strong>Advertisement status:</strong> Audio pre-roll और Google AdSense अभी connect नहीं किए गए हैं। इनके लिए approved ad account / VAST tag और सही publisher details मिलने के बाद ही विज्ञापन चालू होंगे। अभी Player में गाना सीधे चलेगा।</div>
 <section class="catalog"><div class="catalog-head"><div><div class="eyebrow">Explore the full catalogue</div><h2>बाकी सभी गाने</h2><p>पूरे गाने सुनने के लिए आधिकारिक म्यूजिक प्लेटफॉर्म पर जाएँ।</p></div></div><a class="platform-link" href="/songs.html">View all songs & streaming links ↗</a></section>
 </main>
-<footer><div class="wrap foot"><span>© <span id="year"></span> DkRapria Music</span><span>Official website · Hindi · Haryanvi · Devotional</span></div></footer>
+<footer><div class="wrap foot"><span>© <span id="year"></span> DkRapria Music</span><div class="foot-links" role="navigation" aria-label="Footer navigation"><a href="/">Home</a><a href="/songs.html">All Songs</a><a href="/#about">About</a><a href="/#contact">Contact</a><a href="/privacy-policy.html">Privacy</a><a href="/terms.html">Terms</a></div><span>Official website · Hindi · Haryanvi · Devotional</span></div></footer>
 <script>
 (() => {
  const audio=document.getElementById('audio'), list=document.getElementById('track-list');
