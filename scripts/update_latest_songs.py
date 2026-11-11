@@ -160,7 +160,7 @@ def main():
             continue
         seen_video_ids.add(video_id)
 
-        if is_secondary and "dkrapria" not in title.casefold():
+        if is_secondary and "dkrapria originals" not in title.casefold():
             continue
         if is_devotional(title, video_id):
             continue
