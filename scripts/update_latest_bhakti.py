@@ -53,6 +53,7 @@ MANUAL_RELEASES = {
             "youtubeMusic": "https://music.youtube.com/watch?v=959fRJPZph4",
             "songdew": "https://songdew.com/songs/ram-ji-ram-ji-sabke-banao-tum-bigde-kaam-ji-149355",
             "spotify": "https://open.spotify.com/album/6ZraErwI9fQFPusX4NRlgT",
+            "amazonMusic": "https://music.amazon.com/albums/B0HQNMMHPP",
             "appleMusic": "https://music.apple.com/us/song/ram-ji-ram-ji-sabke-banao-tum-bigde-kaam-ji/6831526868",
             "deezer": "https://www.deezer.com/us/track/4395471691",
             "pandora": "https://www.pandora.com/artist/dk-rapria/ram-ji-ram-ji-sabke-banao-tum-bigde-kaam-ji/ram-ji-ram-ji-sabke-banao-tum-bigde-kaam-ji/TR7Zk5KtKjjvjt2",
@@ -74,6 +75,7 @@ MANUAL_RELEASES = {
             "youtubeMusic": "https://music.youtube.com/watch?v=Cru3kLNUa-M",
             "songdew": "https://songdew.com/songs/main-mitti-ka-khilauna-prabhu-149225",
             "appleMusic": "https://music.apple.com/us/song/main-mitti-ka-khilauna-prabhu/6831146774",
+            "gaana": "https://gaana.com/song/main-mitti-ka-khilauna-prabhu",
             "gaana": "https://gaana.com/song/main-mitti-ka-khilauna-prabhu",
             "soundcloud": "https://soundcloud.com/dkrapria/main-mitti-ka-khilauna-prabhu"
         }

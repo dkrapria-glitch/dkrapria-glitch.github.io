@@ -227,12 +227,7 @@ def main():
             else {}
         )
         youtube_url = f"https://www.youtube.com/watch?v={video_id}"
-        existing_youtube = platforms.get("youtube")
-        if not isinstance(existing_youtube, str) or not (
-            existing_youtube.startswith("https://www.youtube.com/watch?v=")
-            or existing_youtube.startswith("https://youtu.be/")
-        ):
-            platforms["youtube"] = youtube_url
+        platforms["youtube"] = youtube_url
 
         music_url = platforms.get("youtubeMusic")
         if not isinstance(music_url, str) or not music_url.startswith(

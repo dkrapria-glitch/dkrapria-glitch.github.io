@@ -1,8 +1,32 @@
 {
   "artist": "DkRapria",
-  "source": "Apple Music artist catalogue screenshots supplied by the artist",
-  "updatedAt": "2026-11-09",
+  "source": "Artist-provided catalogue plus verified distributor release metadata",
+  "updatedAt": "2026-11-13",
   "songs": [
+    {
+      "title": "Happy Birthday Haryana",
+      "displayTitle": "Happy Birthday Haryana 🎂 | हरियाणा दिवस स्पेशल",
+      "category": "Song",
+      "releaseDate": "2026-11-08",
+      "duration": "3:34",
+      "upc": "8909705802105"
+    },
+    {
+      "title": "Ram Ji Ram Ji Sabke Banao Tum Bigde Kaam Ji",
+      "displayTitle": "राम जी राम जी, सबके बनाओ तुम बिगड़े काम जी",
+      "category": "Bhakti",
+      "releaseDate": "2026-11-11",
+      "duration": "3:35",
+      "upc": "8909705839071"
+    },
+    {
+      "title": "Main Mitti Ka Khilauna Prabhu",
+      "displayTitle": "मैं मिट्टी का खिलौना प्रभु",
+      "category": "Bhakti",
+      "releaseDate": "2026-11-10",
+      "duration": "5:52",
+      "upc": "8909705826637"
+    },
     {
       "title": "Chand Se Pehle Tu",
       "category": "Song"
@@ -140,6 +164,10 @@
     {
       "title": "My Love Story",
       "category": "Song"
+    },
+    {
+      "title": "Hanuman Chalisa",
+      "category": "Bhakti"
     }
   ]
 }
