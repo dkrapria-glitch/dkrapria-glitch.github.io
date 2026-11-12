@@ -1,7 +1,11 @@
 {
   "source": "DkRapria official YouTube channel + SunoDk uploads credited to DkRapria Originals + verified distributor releases",
   "channelUrl": "https://www.youtube.com/@dkrapria/videos",
-  "updatedAt": "2026-11-11T23:15:18.198Z",
+  "sourceChannels": [
+    "https://www.youtube.com/@dkrapria/videos",
+    "https://www.youtube.com/channel/UCokS_ORFCf6Ql_LBAFF1Ohg/videos"
+  ],
+  "updatedAt": "2026-11-12T01:58:08.884054+00:00",
   "songs": [
     {
       "title": "दुनिया बनाने वाले, तेरे मन में समाई| इमोशनल Hindi Song | DkRapria Originals",
@@ -68,7 +72,8 @@
       "published": "2026-10-18T00:00:00Z",
       "platforms": {
         "youtube": "https://www.youtube.com/watch?v=I9s72JpYL7A"
-      }
+      },
+      "duration": "2:46"
     },
     {
       "title": "सस्ती बदमाशी | DkRapria | Haryanvi Social Satire Song | SunoDk  new song",
@@ -78,7 +83,8 @@
       "published": "2026-10-09T00:00:00Z",
       "platforms": {
         "youtube": "https://www.youtube.com/watch?v=vw8l12aZieM"
-      }
+      },
+      "duration": "2:58"
     },
     {
       "title": "औरत होने का दर्द , Lo-fi Version | बेटी से बहू बनते-बनते अपना वजूद खो दिया |  DKRapria",
@@ -88,7 +94,8 @@
       "published": "2026-10-06T00:00:00Z",
       "platforms": {
         "youtube": "https://www.youtube.com/watch?v=yG1KrjJsat0"
-      }
+      },
+      "duration": "6:54"
     },
     {
       "title": "औरत होने का दर्द 💔 | मैं बेगुनाह थी| Heart Touching Song | DKRapria",
@@ -98,7 +105,8 @@
       "published": "",
       "platforms": {
         "youtube": "https://www.youtube.com/watch?v=hA_pcKyuEmc"
-      }
+      },
+      "duration": "5:20"
     },
     {
       "title": "चाँद से पहले तू 🌙 | Karwa Chauth Special Song | DKRapria",
@@ -108,11 +116,8 @@
       "published": "",
       "platforms": {
         "youtube": "https://www.youtube.com/watch?v=K_jkEdnHP1o"
-      }
+      },
+      "duration": "4:02"
     }
-  ],
-  "sourceChannels": [
-    "https://www.youtube.com/@dkrapria/videos",
-    "https://www.youtube.com/channel/UCokS_ORFCf6Ql_LBAFF1Ohg/videos"
   ]
 }
