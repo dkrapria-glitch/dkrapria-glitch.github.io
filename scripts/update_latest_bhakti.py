@@ -73,6 +73,7 @@ MANUAL_RELEASES = {
             "youtube": "https://www.youtube.com/watch?v=nh4bvuJ3JhE",
             "youtubeMusic": "https://music.youtube.com/watch?v=Cru3kLNUa-M",
             "appleMusic": "https://music.apple.com/us/song/main-mitti-ka-khilauna-prabhu/6831146774",
+            "jiosaavn": "https://www.jiosaavn.com/album/main-mitti-ka-khilauna-prabhu/pC6u8sC,de0_",
             "gaana": "https://gaana.com/song/main-mitti-ka-khilauna-prabhu",
             "soundcloud": "https://soundcloud.com/dkrapria/main-mitti-ka-khilauna-prabhu"
         }
