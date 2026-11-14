@@ -46,6 +46,8 @@ MANUAL_RELEASES = {
             "appleMusic": "https://music.apple.com/in/album/aurat-hone-ka-dard-part-2-main-begunah-thi/6830467425?i=6830467426",
             "soundcloud": "https://soundcloud.com/dkrapria/aurat-hone-ka-dard-part-2-main",
             "deezer": "https://www.deezer.com/us/track/4389723821",
+            "spotify": "https://open.spotify.com/album/1iBesjPn7DIkOs36qS6eGz",
+            "songdew": "https://songdew.com/songs/aurat-hone-ka-dard-part-2-main-begunah-thi-148784",
             "gaana": "https://gaana.com/song/aurat-hone-ka-dard-part-2-main-begunah-thi"
         }
     }
