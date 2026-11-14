@@ -36,6 +36,7 @@ MANUAL_RELEASES = {
         "published": "2026-11-05T00:00:00Z",
         "releaseDate": "2026-11-06",
         "duration": "5:19",
+        "isrc": "INSN12635952",
         "genre": "Hindi Sad Song",
         "language": "Hindi",
         "artist": "DkRapria",
@@ -45,7 +46,6 @@ MANUAL_RELEASES = {
             "appleMusic": "https://music.apple.com/in/album/aurat-hone-ka-dard-part-2-main-begunah-thi/6830467425?i=6830467426",
             "soundcloud": "https://soundcloud.com/dkrapria/aurat-hone-ka-dard-part-2-main",
             "deezer": "https://www.deezer.com/us/track/4389723821",
-            "pandora": "https://www.pandora.com/artist/dk-rapria/aurat-hone-ka-dard-part-2-main-begunah-thi/aurat-hone-ka-dard-part-2-main-begunah-thi/TRgcn926ZhrJXnw",
             "gaana": "https://gaana.com/song/aurat-hone-ka-dard-part-2-main-begunah-thi"
         }
     }
