@@ -48,6 +48,7 @@ MANUAL_RELEASES = {
         "duration": "3:35",
         "releaseDate": "2026-11-11",
         "upc": "8909705839071",
+        "isrc": "INSN12636475",
         "platforms": {
             "youtube": "https://www.youtube.com/watch?v=pLJv-l_D_VQ",
             "youtubeMusic": "https://music.youtube.com/watch?v=959fRJPZph4",

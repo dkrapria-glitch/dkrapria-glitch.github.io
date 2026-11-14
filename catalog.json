@@ -1,7 +1,7 @@
 {
   "artist": "DkRapria",
   "source": "Artist-provided catalogue plus verified distributor release metadata",
-  "updatedAt": "2026-11-13",
+  "updatedAt": "2026-11-15",
   "songs": [
     {
       "title": "Happy Birthday Haryana",
@@ -17,7 +17,8 @@
       "category": "Bhakti",
       "releaseDate": "2026-11-11",
       "duration": "3:35",
-      "upc": "8909705839071"
+      "upc": "8909705839071",
+      "isrc": "INSN12636475"
     },
     {
       "title": "Main Mitti Ka Khilauna Prabhu",
