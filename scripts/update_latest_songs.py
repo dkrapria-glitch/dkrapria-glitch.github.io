@@ -1,12 +1,18 @@
 import json
 from datetime import datetime, timezone
 from pathlib import Path
+import urllib.request
+import xml.etree.ElementTree as ET
 
 import yt_dlp
 
 CHANNEL_URL = "https://www.youtube.com/@dkrapria/videos"
 SECONDARY_CHANNEL_URL = "https://www.youtube.com/channel/UCokS_ORFCf6Ql_LBAFF1Ohg/videos"
 SECONDARY_CHANNEL_CREDIT = "DkRapria Originals"
+RSS_CHANNEL_IDS = {
+    "DkRapria": "UCaruxZeR-k2RgO1qzvzdOhQ",
+    "SunoDk": "UCokS_ORFCf6Ql_LBAFF1Ohg",
+}
 OUT = Path("latest-songs.json")
 MAX_RESULTS = 40
 MAX_SONGS = 8
@@ -52,6 +58,29 @@ MANUAL_RELEASES = {
         }
     }
 }
+
+
+ATOM_NS = "{http://www.w3.org/2005/Atom}"
+YOUTUBE_NS = "{http://www.youtube.com/xml/schemas/2015}"
+
+
+def get_rss_published(channel_id: str) -> dict[str, str]:
+    """Use YouTube's public channel RSS feed when yt-dlp omits upload dates."""
+    url = f"https://www.youtube.com/feeds/videos.xml?channel_id={channel_id}"
+    request = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+    try:
+        with urllib.request.urlopen(request, timeout=20) as response:
+            root = ET.fromstring(response.read())
+        published = {}
+        for entry in root.findall(f"{ATOM_NS}entry"):
+            video_id = entry.findtext(f"{YOUTUBE_NS}videoId")
+            timestamp = entry.findtext(f"{ATOM_NS}published")
+            if video_id and timestamp:
+                published[video_id] = timestamp
+        return published
+    except Exception as error:
+        print(f"Could not read YouTube RSS dates for {channel_id}: {error}")
+        return {}
 
 
 def is_devotional(title, video_id):
@@ -105,6 +134,10 @@ def load_previous():
 
 def main():
     previous_by_id = load_previous()
+    rss_published_by_channel = {
+        name: get_rss_published(channel_id)
+        for name, channel_id in RSS_CHANNEL_IDS.items()
+    }
     options = {
         "extract_flat": "in_playlist",
         "playlistend": MAX_RESULTS,
@@ -168,7 +201,11 @@ def main():
             continue
 
         previous = previous_by_id.get(video_id, {})
-        published = get_published(entry) or previous.get("published", "")
+        published = (
+            get_published(entry)
+            or rss_published_by_channel.get(source_channel, {}).get(video_id)
+            or previous.get("published", "")
+        )
         candidates.append({
             "entry": entry,
             "source_channel": source_channel,
@@ -195,7 +232,11 @@ def main():
                     download=False,
                 )
                 if details:
-                    candidate["published"] = get_published(details)
+                    candidate["published"] = (
+                        get_published(details)
+                        or rss_published_by_channel.get(source_channel, {}).get(candidate["video_id"])
+                        or candidate["published"]
+                    )
             except Exception as error:
                 print(
                     f"Could not read upload date for "

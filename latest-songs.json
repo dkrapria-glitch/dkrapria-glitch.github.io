@@ -5,8 +5,22 @@
     "https://www.youtube.com/@dkrapria/videos",
     "https://www.youtube.com/channel/UCokS_ORFCf6Ql_LBAFF1Ohg/videos"
   ],
-  "updatedAt": "2026-11-15T00:04:24.458227+00:00",
+  "updatedAt": "2026-11-15T22:19:53+00:00",
   "songs": [
+    {
+      "title": "जिस्म भटकता है दिन भर 💔 | Hindi Sad Love Song | DkRapria",
+      "videoId": "3Wup-c9ssOU",
+      "url": "https://www.youtube.com/watch?v=3Wup-c9ssOU",
+      "thumbnail": "https://i.ytimg.com/vi/3Wup-c9ssOU/hqdefault.jpg",
+      "published": "2026-11-13T02:14:53+00:00",
+      "duration": "3:03",
+      "platforms": {
+        "youtube": "https://www.youtube.com/watch?v=3Wup-c9ssOU"
+      },
+      "artist": "DkRapria",
+      "genre": "Hindi Sad Love Song",
+      "language": "Hindi"
+    },
     {
       "title": "दुनिया बनाने वाले, तेरे मन में समाई| इमोशनल Hindi Song | DkRapria Originals",
       "videoId": "Xp00LJnTFqk",
@@ -98,17 +112,6 @@
         "youtube": "https://www.youtube.com/watch?v=yG1KrjJsat0"
       },
       "duration": "6:54"
-    },
-    {
-      "title": "जिस्म भटकता है दिन भर 💔 | Hindi Sad Love Song | DkRapria",
-      "videoId": "3Wup-c9ssOU",
-      "url": "https://www.youtube.com/watch?v=3Wup-c9ssOU",
-      "thumbnail": "https://i.ytimg.com/vi/3Wup-c9ssOU/hqdefault.jpg",
-      "published": "",
-      "duration": "3:03",
-      "platforms": {
-        "youtube": "https://www.youtube.com/watch?v=3Wup-c9ssOU"
-      }
     },
     {
       "title": "औरत होने का दर्द 💔 | मैं बेगुनाह थी| Heart Touching Song | DKRapria",

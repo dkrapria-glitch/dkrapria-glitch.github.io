@@ -1,6 +1,8 @@
 import html
 import json
 import re
+import urllib.request
+import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -11,6 +13,29 @@ CHANNEL_NAME = "SunoDk"
 OUT = Path("latest-bhakti.json")
 MAX_RESULTS = 50
 MAX_VIDEOS = 12
+
+ATOM_NS = "{http://www.w3.org/2005/Atom}"
+YOUTUBE_NS = "{http://www.youtube.com/xml/schemas/2015}"
+
+
+def get_rss_published(channel_id: str) -> dict[str, str]:
+    """Use YouTube's public channel RSS feed when yt-dlp omits upload dates."""
+    url = f"https://www.youtube.com/feeds/videos.xml?channel_id={channel_id}"
+    request = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+    try:
+        with urllib.request.urlopen(request, timeout=20) as response:
+            root = ET.fromstring(response.read())
+        published = {}
+        for entry in root.findall(f"{ATOM_NS}entry"):
+            video_id = entry.findtext(f"{YOUTUBE_NS}videoId")
+            timestamp = entry.findtext(f"{ATOM_NS}published")
+            if video_id and timestamp:
+                published[video_id] = timestamp
+        return published
+    except Exception as error:
+        print(f"Could not read YouTube RSS dates for {channel_id}: {error}")
+        return {}
+
 
 ENGLISH_DEVOTIONAL = re.compile(
     r"\b(?:bhakti|bhajan|devotional|spiritual|nirgun|mantra|jaap|jap|"
@@ -80,6 +105,14 @@ MANUAL_RELEASES = {
         }
     }
 }
+MANUAL_VIDEO_METADATA = {
+    "KPLv0_mKVMM": {
+        "displayTitle": "मोहे धूल बनइयो राधा",
+        "artist": "DkRapria & Teem",
+        "genre": "Hindi Devotional Bhajan",
+        "language": "Hindi",
+    }
+}
 
 
 def is_devotional(title: str, video_id: str) -> bool:
@@ -140,6 +173,7 @@ def main() -> None:
     if not entries:
         raise RuntimeError("SunoDk channel returned no video entries; keeping the previous feed.")
 
+    rss_published = get_rss_published("UCokS_ORFCf6Ql_LBAFF1Ohg")
     videos = []
     seen_ids = set()
     for entry in entries:
@@ -157,7 +191,7 @@ def main() -> None:
             "title": title,
             "url": f"https://www.youtube.com/watch?v={video_id}",
             "thumbnail": get_thumbnail(entry, video_id),
-            "published": get_published(entry),
+            "published": get_published(entry) or rss_published.get(video_id, ""),
         })
 
     # Flat playlist entries often omit upload dates and durations. Enrich the
@@ -177,7 +211,11 @@ def main() -> None:
                 details = detail_ydl.extract_info(video["url"], download=False)
                 if not details:
                     continue
-                video["published"] = get_published(details) or video["published"]
+                video["published"] = (
+                    get_published(details)
+                    or rss_published.get(video["videoId"])
+                    or video["published"]
+                )
                 if details.get("duration"):
                     total_seconds = int(float(details["duration"]))
                     video["duration"] = (
@@ -191,6 +229,7 @@ def main() -> None:
     # Attach verified distributor metadata after upload enrichment so release
     # dates and distributor durations remain authoritative.
     for video in videos:
+        video.update(MANUAL_VIDEO_METADATA.get(video["videoId"], {}))
         manual = MANUAL_RELEASES.get(video["videoId"])
         if manual:
             video.update(manual)
