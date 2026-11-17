@@ -1,7 +1,7 @@
 {
   "artist": "DkRapria",
   "source": "Artist-provided catalogue plus verified distributor release metadata",
-  "updatedAt": "2026-11-17",
+  "updatedAt": "2026-11-18",
   "songs": [
     {
       "title": "Happy Birthday Haryana",
@@ -69,7 +69,20 @@
     },
     {
       "title": "Oye Teri Yaad Aati Hai",
-      "category": "Song"
+      "category": "Song",
+      "artist": "Dk Rapria",
+      "releaseDate": "2026-09-28",
+      "duration": "5:32",
+      "platforms": {
+        "youtube": "https://www.youtube.com/watch?v=UdojRe-aglY",
+        "songdew": "https://songdew.com/songs/oye-teri-yaad-aati-hai-145829",
+        "spotify": "https://open.spotify.com/track/69xRDtKyO4TfsCDbvCSJ7o",
+        "appleMusic": "https://music.apple.com/in/album/oye-teri-yaad-aati-hai/6816365815?i=6816365816",
+        "amazonMusic": "https://music.amazon.in/tracks/B0HL4M42K7",
+        "jiosaavn": "https://www.jiosaavn.com/song/oye-teri-yaad-aati-hai/NCsdAwJdTks",
+        "gaana": "https://gaana.com/song/oye-teri-yaad-aati-hai",
+        "soundcloud": "https://soundcloud.com/dkrapria/oye-teri-yaad-aati-hai"
+      }
     },
     {
       "title": "Bewafa Kyun Kehte Ho",
