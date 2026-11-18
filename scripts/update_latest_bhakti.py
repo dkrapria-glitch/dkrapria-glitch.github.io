@@ -106,6 +106,15 @@ MANUAL_RELEASES = {
     }
 }
 MANUAL_VIDEO_METADATA = {
+    "2lSZtDlRcZw": {
+        "displayTitle": "मोहे धूल बनइय्यो राधा",
+        "artist": "DkRapria & Teem",
+        "genre": "Hindi Devotional Bhajan",
+        "language": "Hindi",
+        "platforms": {
+            "youtube": "https://www.youtube.com/watch?v=2lSZtDlRcZw"
+        }
+    },
     "KPLv0_mKVMM": {
         "displayTitle": "मोहे धूल बनइयो राधा",
         "artist": "DkRapria & Teem",
