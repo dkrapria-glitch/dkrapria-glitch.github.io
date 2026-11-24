@@ -1,8 +1,20 @@
 {
   "artist": "DkRapria",
   "source": "Artist-provided catalogue plus verified distributor release metadata",
-  "updatedAt": "2026-11-18",
+  "updatedAt": "2026-11-25",
   "songs": [
+    {
+      "title": "औरत होने का दर्द 2.O",
+      "displayTitle": "औरत होने का दर्द 2.O 💔 | बेटी से बहू बनने का दर्द",
+      "category": "Song",
+      "artist": "DkRapria",
+      "releaseDate": "2026-11-24",
+      "duration": "5:20",
+      "videoId": "jkDqjNSc3fk",
+      "platforms": {
+        "youtube": "https://www.youtube.com/watch?v=jkDqjNSc3fk"
+      }
+    },
     {
       "title": "Happy Birthday Haryana",
       "displayTitle": "Happy Birthday Haryana 🎂 | हरियाणा दिवस स्पेशल",
