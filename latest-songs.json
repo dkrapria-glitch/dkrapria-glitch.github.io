@@ -74,7 +74,10 @@
         "youtube": "https://www.youtube.com/watch?v=1wQeXvKm0IQ",
         "appleMusic": "https://music.apple.com/in/album/happy-birthday-haryana/6830557385?i=6830557389",
         "gaana": "https://gaana.com/song/happy-birthday-haryana",
-        "songdew": "https://songdew.com/songs/happy-birthday-haryana-149049"
+        "spotify": "https://open.spotify.com/album/0EHPRcaYv611zCLX5AYVNU",
+        "jiosaavn": "https://www.jiosaavn.com/song/happy-birthday-haryana/AQk8fwFBdlY",
+        "deezer": "https://www.deezer.com/us/track/4390228751",
+        "soundcloud": "https://soundcloud.com/dkrapria/happy-birthday-haryana"
       }
     },
     {
@@ -95,8 +98,10 @@
         "appleMusic": "https://music.apple.com/in/album/aurat-hone-ka-dard-part-2-main-begunah-thi/6830467425?i=6830467426",
         "soundcloud": "https://soundcloud.com/dkrapria/aurat-hone-ka-dard-part-2-main",
         "deezer": "https://www.deezer.com/us/track/4389723821",
-        "spotify": "https://open.spotify.com/album/1iBesjPn7DIkOs36qS6eGz",
-        "gaana": "https://gaana.com/song/aurat-hone-ka-dard-part-2-main-begunah-thi"
+        "spotify": "https://open.spotify.com/track/4VAvqD6MfgmLwBh14R8sRR",
+        "gaana": "https://gaana.com/song/aurat-hone-ka-dard-part-2-main-begunah-thi",
+        "amazonMusic": "https://music.amazon.com/tracks/B0HQ7C8VFS",
+        "songdew": "https://songdew.com/songs/aurat-hone-ka-dard-part-2-main-begunah-thi-148784"
       },
       "isrc": "INSN12635952"
     },

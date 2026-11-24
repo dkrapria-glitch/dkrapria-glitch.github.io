@@ -21,7 +21,18 @@
       "category": "Song",
       "releaseDate": "2026-11-08",
       "duration": "3:34",
-      "upc": "8909705802105"
+      "upc": "8909705802105",
+      "videoId": "1wQeXvKm0IQ",
+      "platforms": {
+        "youtubeMusic": "https://music.youtube.com/watch?v=2X7f3Wy_pDA",
+        "youtube": "https://www.youtube.com/watch?v=1wQeXvKm0IQ",
+        "appleMusic": "https://music.apple.com/in/album/happy-birthday-haryana/6830557385?i=6830557389",
+        "gaana": "https://gaana.com/song/happy-birthday-haryana",
+        "spotify": "https://open.spotify.com/album/0EHPRcaYv611zCLX5AYVNU",
+        "jiosaavn": "https://www.jiosaavn.com/song/happy-birthday-haryana/AQk8fwFBdlY",
+        "deezer": "https://www.deezer.com/us/track/4390228751",
+        "soundcloud": "https://soundcloud.com/dkrapria/happy-birthday-haryana"
+      }
     },
     {
       "title": "Ram Ji Ram Ji Sabke Banao Tum Bigde Kaam Ji",
@@ -30,7 +41,18 @@
       "releaseDate": "2026-11-11",
       "duration": "3:35",
       "upc": "8909705839071",
-      "isrc": "INSN12636475"
+      "isrc": "INSN12636475",
+      "videoId": "pLJv-l_D_VQ",
+      "platforms": {
+        "youtubeMusic": "https://music.youtube.com/watch?v=959fRJPZph4",
+        "youtube": "https://www.youtube.com/watch?v=pLJv-l_D_VQ",
+        "spotify": "https://open.spotify.com/album/6ZraErwI9fQFPusX4NRlgT",
+        "appleMusic": "https://music.apple.com/us/song/ram-ji-ram-ji-sabke-banao-tum-bigde-kaam-ji/6831526868",
+        "amazonMusic": "https://music.amazon.com/albums/B0HQNMMHPP",
+        "deezer": "https://www.deezer.com/us/track/4395471691",
+        "jiosaavn": "https://www.jiosaavn.com/song/ram-ji-ram-ji-sabke-banao-tum-bigde-kaam-ji/RSQlekNGRmo",
+        "soundcloud": "https://soundcloud.com/dkrapria/ram-ji-ram-ji-sabke-banao-tum"
+      }
     },
     {
       "title": "Main Mitti Ka Khilauna Prabhu",
@@ -38,7 +60,17 @@
       "category": "Bhakti",
       "releaseDate": "2026-11-10",
       "duration": "5:52",
-      "upc": "8909705826637"
+      "upc": "8909705826637",
+      "videoId": "nh4bvuJ3JhE",
+      "platforms": {
+        "youtubeMusic": "https://music.youtube.com/watch?v=Cru3kLNUa-M",
+        "youtube": "https://www.youtube.com/watch?v=nh4bvuJ3JhE",
+        "appleMusic": "https://music.apple.com/us/song/main-mitti-ka-khilauna-prabhu/6831146774",
+        "jiosaavn": "https://www.jiosaavn.com/song/main-mitti-ka-khilauna-prabhu/RTJSYhhCAX4",
+        "gaana": "https://gaana.com/song/main-mitti-ka-khilauna-prabhu",
+        "soundcloud": "https://soundcloud.com/dkrapria/main-mitti-ka-khilauna-prabhu",
+        "songdew": "https://songdew.com/songs/main-mitti-ka-khilauna-prabhu-149225"
+      }
     },
     {
       "title": "Chand Se Pehle Tu",
@@ -77,7 +109,19 @@
       "category": "Song",
       "releaseDate": "2026-11-06",
       "duration": "5:19",
-      "isrc": "INSN12635952"
+      "isrc": "INSN12635952",
+      "videoId": "ivQeQKEF6qs",
+      "platforms": {
+        "youtubeMusic": "https://music.youtube.com/watch?v=ivQeQKEF6qs",
+        "youtube": "https://www.youtube.com/watch?v=ivQeQKEF6qs",
+        "spotify": "https://open.spotify.com/track/4VAvqD6MfgmLwBh14R8sRR",
+        "appleMusic": "https://music.apple.com/in/album/aurat-hone-ka-dard-part-2-main-begunah-thi/6830467425?i=6830467426",
+        "amazonMusic": "https://music.amazon.com/tracks/B0HQ7C8VFS",
+        "soundcloud": "https://soundcloud.com/dkrapria/aurat-hone-ka-dard-part-2-main",
+        "deezer": "https://www.deezer.com/us/track/4389723821",
+        "gaana": "https://gaana.com/song/aurat-hone-ka-dard-part-2-main-begunah-thi",
+        "songdew": "https://songdew.com/songs/aurat-hone-ka-dard-part-2-main-begunah-thi-148784"
+      }
     },
     {
       "title": "Oye Teri Yaad Aati Hai",
@@ -90,7 +134,6 @@
         "songdew": "https://songdew.com/songs/oye-teri-yaad-aati-hai-145829",
         "spotify": "https://open.spotify.com/track/69xRDtKyO4TfsCDbvCSJ7o",
         "appleMusic": "https://music.apple.com/in/album/oye-teri-yaad-aati-hai/6816365815?i=6816365816",
-        "amazonMusic": "https://music.amazon.in/tracks/B0HL4M42K7",
         "jiosaavn": "https://www.jiosaavn.com/song/oye-teri-yaad-aati-hai/NCsdAwJdTks",
         "gaana": "https://gaana.com/song/oye-teri-yaad-aati-hai",
         "soundcloud": "https://soundcloud.com/dkrapria/oye-teri-yaad-aati-hai"
