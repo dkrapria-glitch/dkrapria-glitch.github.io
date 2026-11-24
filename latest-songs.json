@@ -5,8 +5,19 @@
     "https://www.youtube.com/@dkrapria/videos",
     "https://www.youtube.com/channel/UCokS_ORFCf6Ql_LBAFF1Ohg/videos"
   ],
-  "updatedAt": "2026-11-23T01:02:10.839367+00:00",
+  "updatedAt": "2026-11-24T04:54:08.347807+00:00",
   "songs": [
+    {
+      "title": "औरत होने का दर्द 2.O 💔 | बेटी से बहू बनने का दर्द | Heart Touching Hindi Song | DkRapria",
+      "videoId": "jkDqjNSc3fk",
+      "url": "https://www.youtube.com/watch?v=jkDqjNSc3fk",
+      "thumbnail": "https://i.ytimg.com/vi/jkDqjNSc3fk/hqdefault.jpg",
+      "published": "2026-11-24T03:06:34+00:00",
+      "duration": "5:20",
+      "platforms": {
+        "youtube": "https://www.youtube.com/watch?v=jkDqjNSc3fk"
+      }
+    },
     {
       "title": "जिस्म भटकता है दिन भर 💔 | Hindi Sad Love Song | DkRapria",
       "videoId": "3Wup-c9ssOU",
@@ -110,17 +121,6 @@
         "youtube": "https://www.youtube.com/watch?v=I9s72JpYL7A"
       },
       "duration": "2:46"
-    },
-    {
-      "title": "सस्ती बदमाशी | DkRapria | Haryanvi Social Satire Song | SunoDk  new song",
-      "videoId": "vw8l12aZieM",
-      "url": "https://www.youtube.com/watch?v=vw8l12aZieM",
-      "thumbnail": "https://i.ytimg.com/vi/vw8l12aZieM/hqdefault.jpg",
-      "published": "2026-10-09T00:00:00Z",
-      "platforms": {
-        "youtube": "https://www.youtube.com/watch?v=vw8l12aZieM"
-      },
-      "duration": "2:58"
     }
   ]
 }
